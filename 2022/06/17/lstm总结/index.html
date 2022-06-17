@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Lstm总结 | 南风er的小窝</title><meta name="keywords" content="深度学习"><meta name="author" content="southner"><meta name="copyright" content="southner"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0. 资料 官方文档 汉化详解 LSTM介绍 nn.lstm 输入sequence_length详解 序列长度不固定 pytorch 实现LSTM Autoencoder  1 LSTM1.0 RNN循环神经网络（Recurrent Neural Network，RNN）是一种用于处理序列数据的神经网络。相比一般的神经网络来说，他能够处理序列变化的数据。比如某个单词的意思会因为上文提到的内容不同而">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lstm总结">
+<meta property="og:url" content="http://southner.top/2022/06/17/lstm%E6%80%BB%E7%BB%93/">
+<meta property="og:site_name" content="南风er的小窝">
+<meta property="og:description" content="0. 资料 官方文档 汉化详解 LSTM介绍 nn.lstm 输入sequence_length详解 序列长度不固定 pytorch 实现LSTM Autoencoder  1 LSTM1.0 RNN循环神经网络（Recurrent Neural Network，RNN）是一种用于处理序列数据的神经网络。相比一般的神经网络来说，他能够处理序列变化的数据。比如某个单词的意思会因为上文提到的内容不同而">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://picgo.southner.top/cover2.png">
+<meta property="article:published_time" content="2022-06-17T05:02:44.000Z">
+<meta property="article:modified_time" content="2022-06-17T05:04:42.655Z">
+<meta property="article:author" content="southner">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://picgo.southner.top/cover2.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://southner.top/2022/06/17/lstm%E6%80%BB%E7%BB%93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: southner","link":"链接: ","source":"来源: 南风er的小窝","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Lstm总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-06-17 13:04:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/southner.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('http://picgo.southner.top/cover2.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">南风er的小窝</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Lstm总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-17T05:02:44.000Z" title="发表于 2022-06-17 13:02:44">2022-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-06-17T05:04:42.655Z" title="更新于 2022-06-17 13:04:42">2022-06-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E6%A8%A1%E5%9E%8B/">经典模型</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Lstm总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="0-资料"><a href="#0-资料" class="headerlink" title="0. 资料"></a>0. 资料</h2><ul>
+<li><a href="https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html">官方文档</a></li>
+<li><a href="https://blog.csdn.net/m0_45478865/article/details/104455978">汉化详解</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/32085405">LSTM介绍</a></li>
+<li><a href="https://www.cnblogs.com/danielkung/p/14354415.html">nn.lstm 输入sequence_length详解</a></li>
+<li><a href="https://blog.csdn.net/weixin_39778150/article/details/110713332">序列长度不固定</a></li>
+<li><a href="https://blog.csdn.net/weixin_35757704/article/details/118459850">pytorch 实现LSTM Autoencoder</a></li>
+</ul>
+<h2 id="1-LSTM"><a href="#1-LSTM" class="headerlink" title="1 LSTM"></a>1 LSTM</h2><h3 id="1-0-RNN"><a href="#1-0-RNN" class="headerlink" title="1.0 RNN"></a>1.0 RNN</h3><p>循环神经网络（Recurrent Neural Network，RNN）是一种用于处理序列数据的神经网络。相比一般的神经网络来说，他能够处理序列变化的数据。比如某个单词的意思会因为上文提到的内容不同而有不同的含义，RNN就能够很好地解决这类问题。</p>
+<h3 id="1-1-普通RNN"><a href="#1-1-普通RNN" class="headerlink" title="1.1 普通RNN"></a>1.1 普通RNN</h3><p>其主要形式如下图所示</p>
+<p><img src="https://gitee.com/southner/picgo/raw/master/img/202111041035399.png" alt="image-20211104103527351"></p>
+<p>这里：</p>
+<p>$x$为当前状态下数据的输入， $h$表示接收到的上一个节点的输入。</p>
+<p>$h$为当前节点状态下的输出，而$h’$ 为传递到下一个节点的输出。</p>
+<p>通过序列形式的输入，我们能够得到如下形式的RNN。</p>
+<p><img src="https://gitee.com/southner/picgo/raw/master/img/202111041526234.jpg" alt="1c8f18d94a114fcc988feb71910ae68a"></p>
+<h3 id="1-2-什么是LSTM"><a href="#1-2-什么是LSTM" class="headerlink" title="1.2 什么是LSTM"></a>1.2 什么是LSTM</h3><p>长短期记忆（Long short-term memory, LSTM）是一种特殊的RNN，主要是为了解决长序列训练过程中的梯度消失和梯度爆炸问题。简单来说，就是相比普通的RNN，LSTM能够在更长的序列中有更好的表现。</p>
+<p>LSTM结构（图右）和普通RNN的主要输入输出区别如下所示。</p>
+<p><img src="https://gitee.com/southner/picgo/raw/master/img/202111041527791.jpg" alt="59bcaf1c93d6465abde5a51ac01ed027"></p>
+<p>相比RNN只有一个传递状态$h^t$，LSTM有两个传输状态，一个$c^t$（cell state)，和一个$h^t$（hidden state）。（Tips：RNN中的$h^t$对于LSTM中的$c^t$）</p>
+<p>其中对于传递下去的$c^t$改变得很慢，通常输出的 $c^t$是上一个状态传过来的 $c^t-1$加上一些数值。</p>
+<p>而$h^t$则在不同节点下往往会有很大的区别。</p>
+<h3 id="1-3-深入LSTM结构"><a href="#1-3-深入LSTM结构" class="headerlink" title="1.3 深入LSTM结构"></a>1.3 深入LSTM结构</h3><p>下面具体对LSTM的内部结构来进行剖析。</p>
+<p>首先使用LSTM的当前输入$x^t$和上一个状态传递下来的 $h^{t-1}$拼接训练得到四个状态。</p>
+<p><img src="https://gitee.com/southner/picgo/raw/master/img/202111041533083.jpg" alt="b963746ffd2c4c4786ff2fa6e26c8fd6"></p>
+<p><img src="https://gitee.com/southner/picgo/raw/master/img/202111041533021.jpg" alt="001bbb0450e44a318cd7c8074e6cb4d9"></p>
+<p>其中，$z^f$(f代表forget),$z^i$（i代表information或input）,$z^o$（o代表output）是由拼接向量乘以权重矩阵之后，再通过一个 $sigmoid$激活函数转换成0到1之间的数值，来作为一种门控状态。而 $z$则是将结果通过一个 $tanh$激活函数将转换成-1到1之间的值（这里使用$tanh$是因为这里是将其做为输入数据，而不是门控信号）。</p>
+<p><strong>下面开始进一步介绍这四个状态在LSTM内部的使用。（敲黑板）</strong></p>
+<p><img src="https://gitee.com/southner/picgo/raw/master/img/202111041535013.jpg" alt="2f534e002bfd410c89994a6b7df241ff"></p>
+<p>$\odot$是Hadamard Product，也就是操作矩阵中对应的元素相乘，因此要求两个相乘矩阵是同型的。$\oplus$则代表进行矩阵加法。</p>
+<p>LSTM内部主要有三个阶段：</p>
+<ol>
+<li><p>忘记阶段。这个阶段主要是对上一个节点传进来的输入进行<strong>选择性</strong>忘记。简单来说就是会 “忘记不重要的，记住重要的”。</p>
+<p>具体来说是通过计算得到的$z^f$(f代表forget)来作为忘记门控，来控制上一个状态的 $c^{t-1}$哪些需要留哪些需要忘。</p>
+</li>
+<li><p>选择记忆阶段。这个阶段将这个阶段的输入有选择性地进行“记忆”。主要是会对输入$x^t$进行选择记忆。哪些重要则着重记录下来，哪些不重要，则少记一些。当前的输入内容由前面计算得到的$z$表示。而选择的门控信号则是由$z^i$（i代表information或input）来进行控制。</p>
+<blockquote>
+<p>将上面两步得到的结果相加，即可得到传输给下一个状态的$c^t$。也就是上图中的第一个公式。</p>
+</blockquote>
+</li>
+<li><p>输出阶段。这个阶段将决定哪些将会被当成当前状态的输出。主要是通过 $z^o$（o代表output）来进行控制的。并且还对上一阶段得到的$c^t$进行了放缩（通过一个tanh激活函数进行变化）。</p>
+<p>与普通RNN类似，输出 $y^t$往往最终也是通过$h^t$变化得到。</p>
+</li>
+</ol>
+<h3 id="1-4-总结"><a href="#1-4-总结" class="headerlink" title="1.4 总结"></a>1.4 总结</h3><p>以上，就是LSTM的内部结构。通过门控状态来控制传输状态，记住需要长时间记忆的，忘记不重要的信息；而不像普通的RNN那样只能够“呆萌”地仅有一种记忆叠加方式。对很多需要“长期记忆”的任务来说，尤其好用。</p>
+<p>但也因为引入了很多内容，导致参数变多，也使得训练难度加大了很多。因此很多时候我们往往会使用效果和LSTM相当但参数更少的GRU来构建大训练量的模型。</p>
+<h2 id="2-nn-lstm"><a href="#2-nn-lstm" class="headerlink" title="2 nn.lstm"></a>2 nn.lstm</h2><p><a href="https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html">官方文档</a></p>
+<p>将多层(LSTM) RNN 应用于输入序列。</p>
+<p>对于输入序列中的每个元素，每一层计算以下函数：</p>
+<p><img src="https://gitee.com/southner/picgo/raw/master/img/202111041547475.png" alt="image-20211104154714449"></p>
+<p>$h_t$是$t$时刻的隐藏状态，$c_t$是$t$时刻的cell状态，$x_t$是$t$时刻的输入，$h_{t-1}$是$t-1$时刻的隐藏状态或者0时刻的初始状态。$i_t$,$f_t$,$g_t$,$o_t$,分别是$input$,$forget$,$cell$,$output$门。$\sigma$是$sigmoid$激活函数，$\odot$是Hadamard product.</p>
+<p>在一个多层LSTM中，$l_{th}$层的输入$x^{(l)}_t$是之前层的隐藏状态$h^{(l-1)}_t$ $\times$ $dropout$ $\delta^{(l-1)}_t$，每一个$\delta^{(l-1)}_t$伯努利随机变量。</p>
+<p>关于投影 $proj_size$ 参考原文档。</p>
+<h3 id="2-1-参数"><a href="#2-1-参数" class="headerlink" title="2.1 参数"></a>2.1 参数</h3><ul>
+<li><strong>input_size</strong> – The number of expected features in the input x</li>
+<li><strong>hidden_size</strong> – The number of features in the hidden state h</li>
+<li><strong>num_layers</strong> – Number of recurrent layers. E.g., setting <code>num_layers=2</code> would mean stacking two LSTMs together to form a stacked LSTM, with the second LSTM taking in outputs of the first LSTM and computing the final results. Default: 1</li>
+<li><strong>bias</strong> – If <code>False</code>, then the layer does not use bias weights b_ih and b_hh. Default: <code>True</code></li>
+<li><strong>batch_first</strong> – If <code>True</code>, then the input and output tensors are provided as (batch, seq, feature) instead of (seq, batch, feature). Note that this does not apply to hidden or cell states. See the Inputs/Outputs sections below for details.  Default: <code>False</code></li>
+<li><strong>dropout</strong> – If non-zero, introduces a Dropout layer on the outputs of each LSTM layer except the last layer, with dropout probability equal to <code>dropout</code>. Default: 0</li>
+<li><strong>bidirectional</strong> – If <code>True</code>, becomes a bidirectional LSTM. Default: <code>False</code></li>
+<li><strong>proj_size</strong> – If <code>&gt; 0</code>, will use LSTM with projections of corresponding size. Default: 0</li>
+</ul>
+<h3 id="2-2-输入-inputs，-h-0-c-0"><a href="#2-2-输入-inputs，-h-0-c-0" class="headerlink" title="2.2 输入 inputs，(h_0,c_0)"></a>2.2 输入 inputs，(h_0,c_0)</h3><ul>
+<li><p><strong>input</strong>: tensor of shape $(L,N,H_{in})$when <code>batch_first=False</code> or $(N,L,H_{in})$when <code>batch_first=True</code> containing the features of the input sequence.  The input can also be a packed variable length sequence. </p>
+<p>See <a href="https://pytorch.org/docs/stable/generated/torch.nn.utils.rnn.pack_padded_sequence.html#torch.nn.utils.rnn.pack_padded_sequence"><code>torch.nn.utils.rnn.pack_padded_sequence()</code></a> or <a href="https://pytorch.org/docs/stable/generated/torch.nn.utils.rnn.pack_sequence.html#torch.nn.utils.rnn.pack_sequence"><code>torch.nn.utils.rnn.pack_sequence()</code></a> for details.</p>
+</li>
+<li><p><strong>h_0</strong>: tensor of shape $(D∗num_layers,N,H_{out})$containing the initial hidden state for each element in the batch. Defaults to zeros if (h_0, c_0) is not provided.</p>
+</li>
+<li><p><strong>c_0</strong>: tensor of shape $(D∗num_layers,N,H_{cell})$containing the initial cell state for each element in the batch. Defaults to zeros if (h_0, c_0) is not provided.</p>
+<p>where:</p>
+<script type="math/tex; mode=display">
+N=batch size \\
+L = sequence\ length \\
+D = 2\ if\ bidirectional=True\ otherwise\ 1 \\
+H_{in} = input\_size \\
+H_{cell} = hidden\_size \\
+H_{out} = proj\_size\ if\ proj\_size>0\ otherwise\ hidden\_size</script></li>
+</ul>
+<h3 id="输出-output-h-n-c-n"><a href="#输出-output-h-n-c-n" class="headerlink" title="输出: output, (h_n, c_n)"></a>输出: output, (h_n, c_n)</h3><ul>
+<li><strong>output</strong>: tensor of shape$(L,N,D\times H_{out})$when <code>batch_first=False</code> or $(N,L,D\times H_{out})$ when <code>batch_first=True</code> containing the output features (h_t) from the last layer of the LSTM, for each t. If a <a href="https://pytorch.org/docs/stable/generated/torch.nn.utils.rnn.PackedSequence.html#torch.nn.utils.rnn.PackedSequence"><code>torch.nn.utils.rnn.PackedSequence</code></a> has been given as the input, the output will also be a packed sequence.</li>
+<li><strong>h_n</strong>: tensor of shape $(D∗num_layers,N,H_{out})$containing the final hidden state for each element in the batch.</li>
+<li><strong>c_n</strong>: tensor of shape $(D∗num_layers,N,H_{cell})$containing the final cell state for each element in the batch.</li>
+</ul>
+<h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>比如做一个文本翻译的任务，训练样本有$N$(10000)个句子，每个句子有$L$个单词组成。若句子不一样长短，则假定句子最长为$max_L=300$个单词，将所有句子都填充至$max_L$长度即300,再加上开头和结尾的$sos$ 和$eos$,每个句子由302个单词组成。若句子长短相同，则无需填充，每个句子仍由$L$个单词组成。</p>
+<p>每个单词由一个词向量表示，词向量的长度就是LSTM的$input_size$，在这里假设为128维，$sos$ 和$eos$也是128维。</p>
+<p>假定模型为一层的单向LSTM，每个单词被压缩为24维，batch_size为64。</p>
+<p>则参数可以设为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># paramaters</span><br><span class="line">import torch</span><br><span class="line"></span><br><span class="line">input_size = 128</span><br><span class="line">hidden_size = 24 #每个单词经过LSTM后的向量长度 假设为24维</span><br><span class="line">num_layers = 1</span><br><span class="line"></span><br><span class="line">lstm = torch.nn.LSTM(input_size, hidden_size, num_layers)</span><br><span class="line"># inputs	假定batch_first = False</span><br><span class="line">input = (302,64,128)    #（句子长短，batch_size，词向量长度） （frame，batch_size,n_mels）</span><br><span class="line">h_0 = (1 * 1,64,24) 		#D = 1 设为单向LSTM  bidirectional = False</span><br><span class="line">c_0 = (1 * 1,64,24)</span><br><span class="line"></span><br><span class="line">output,(h_n,c_n) = lstm(input,(h_0,c_0))</span><br><span class="line">#output.shape == (302,64,24) h_n,c_n shape 不变</span><br></pre></td></tr></table></figure>
+<h2 id="3-pytorch-实现-LSTM-AutoEncoder"><a href="#3-pytorch-实现-LSTM-AutoEncoder" class="headerlink" title="3 pytorch 实现 LSTM AutoEncoder"></a>3 pytorch 实现 LSTM AutoEncoder</h2><h3 id="3-0-来源"><a href="#3-0-来源" class="headerlink" title="3.0 来源"></a>3.0 来源</h3><p><a href="https://blog.csdn.net/weixin_35757704/article/details/118457110">Autoencoder</a></p>
+<p><a href="https://blog.csdn.net/weixin_35757704/article/details/118459850">LSTM AutoEncoder 实现</a></p>
+<h3 id="3-1-LSTM-AutoEncoder简介"><a href="#3-1-LSTM-AutoEncoder简介" class="headerlink" title="3.1 LSTM AutoEncoder简介"></a>3.1 LSTM AutoEncoder简介</h3><p>基础的AutoEncoder可以参考：<a href="https://blog.csdn.net/weixin_35757704/article/details/118457110">https://blog.csdn.net/weixin_35757704/article/details/118457110</a></p>
+<p>而<code>LSTM AutoEncoder</code>是将原始的全连接变成了LSTM，然后构造出来的AutoEncoder模型，输入与输出是一样的数据为最佳</p>
+<h3 id="3-2-LSTM-AutoEncoder-实现"><a href="#3-2-LSTM-AutoEncoder-实现" class="headerlink" title="3.2 LSTM AutoEncoder 实现"></a>3.2 LSTM AutoEncoder 实现</h3><p>博主发现网上对于LSTM AutoEncoder的版本都不一样，通常来讲有：</p>
+<ol>
+<li>encoder与decoder都是：lstm</li>
+<li>encoder是 lstm + fc ; decoder是 fc + lstm</li>
+</ol>
+<p>以下是两种网络架构：</p>
+<h3 id="3-3-基本LSTM-AutoEncoder网络结构"><a href="#3-3-基本LSTM-AutoEncoder网络结构" class="headerlink" title="3.3 基本LSTM AutoEncoder网络结构"></a>3.3 基本LSTM AutoEncoder网络结构</h3><p>这个结构比较简单，就是encoder的时候过一个lstm，decoder的时候再过一个lstm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class LstmAutoEncoder(nn.Module):</span><br><span class="line">    def __init__(self, input_layer=300, hidden_layer=100, batch_size=20):</span><br><span class="line">        super(LstmAutoEncoder, self).__init__()</span><br><span class="line"></span><br><span class="line">        self.input_layer = input_layer</span><br><span class="line">        self.hidden_layer = hidden_layer</span><br><span class="line">        self.batch_size = batch_size</span><br><span class="line">        self.encoder_lstm = nn.LSTM(self.input_layer, self.hidden_layer, batch_first=True)</span><br><span class="line">        self.decoder_lstm = nn.LSTM(self.hidden_layer, self.input_layer, batch_first=True)</span><br><span class="line"></span><br><span class="line">    def forward(self, input_x):</span><br><span class="line">        input_x = input_x.view(len(input_x), 1, -1)</span><br><span class="line">        # encoder</span><br><span class="line">        encoder_lstm, (n, c) = self.encoder_lstm(input_x,</span><br><span class="line">                                                 (torch.zeros(1, self.batch_size, self.hidden_layer),</span><br><span class="line">                                                  torch.zeros(1, self.batch_size, self.hidden_layer)))</span><br><span class="line">        # decoder</span><br><span class="line">        decoder_lstm, (n, c) = self.decoder_lstm(encoder_lstm,</span><br><span class="line">                                                 (torch.zeros(1, self.batch_size, self.input_layer),</span><br><span class="line">                                                  torch.zeros(1, self.batch_size, self.input_layer)))</span><br><span class="line">        return decoder_lstm.squeeze()</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-LSTM-Fc-AutoEncoder网络结构"><a href="#3-4-LSTM-Fc-AutoEncoder网络结构" class="headerlink" title="3.4 LSTM+Fc AutoEncoder网络结构"></a>3.4 LSTM+Fc AutoEncoder网络结构</h3><p>这个网络结构就是：</p>
+<ul>
+<li>在encoder的时候过一个lstm，然后接一个全连接，最后用relu激活函数；</li>
+<li>在decoder的时候先过全连接，然后用relu的激活函数，最后接lstm</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class LstmFcAutoEncoder(nn.Module):</span><br><span class="line">    def __init__(self, input_layer=300, hidden_layer=100, batch_size=20):</span><br><span class="line">        super(LstmFcAutoEncoder, self).__init__()</span><br><span class="line"></span><br><span class="line">        self.input_layer = input_layer</span><br><span class="line">        self.hidden_layer = hidden_layer</span><br><span class="line">        self.batch_size = batch_size</span><br><span class="line"></span><br><span class="line">        self.encoder_lstm = nn.LSTM(self.input_layer, self.hidden_layer, batch_first=True)</span><br><span class="line">        self.encoder_fc = nn.Linear(self.hidden_layer, self.hidden_layer)</span><br><span class="line">        self.decoder_lstm = nn.LSTM(self.hidden_layer, self.input_layer, batch_first=True)</span><br><span class="line">        self.decoder_fc = nn.Linear(self.hidden_layer, self.hidden_layer)</span><br><span class="line">        self.relu = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    def forward(self, input_x):</span><br><span class="line">        input_x = input_x.view(len(input_x), 1, -1)</span><br><span class="line">        # encoder</span><br><span class="line">        encoder_lstm, (n, c) = self.encoder_lstm(input_x,</span><br><span class="line">                                                 # shape: (n_layers, batch, hidden_size)</span><br><span class="line">                                                 (torch.zeros(1, self.batch_size, self.hidden_layer),</span><br><span class="line">                                                  torch.zeros(1, self.batch_size, self.hidden_layer)))</span><br><span class="line">        encoder_fc = self.encoder_fc(encoder_lstm)</span><br><span class="line">        encoder_out = self.relu(encoder_fc)</span><br><span class="line">        # decoder</span><br><span class="line">        decoder_fc = self.relu(self.decoder_fc(encoder_out))</span><br><span class="line">        decoder_lstm, (n, c) = self.decoder_lstm(decoder_fc,</span><br><span class="line">                                                 (torch.zeros(1, 20, self.input_layer),</span><br><span class="line">                                                  torch.zeros(1, 20, self.input_layer)))</span><br><span class="line">        return decoder_lstm.squeeze() </span><br></pre></td></tr></table></figure>
+<h3 id="3-5-案例代码"><a href="#3-5-案例代码" class="headerlink" title="3.5 案例代码"></a>3.5 案例代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">import torch.utils.data as Data</span><br><span class="line"></span><br><span class="line">def get_train_data():</span><br><span class="line">    &quot;&quot;&quot;得到训练数据，这里使用随机数生成训练数据，由此导致最终结果并不好&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def get_tensor_from_pd(dataframe_series) -&gt; torch.Tensor:</span><br><span class="line">        return torch.tensor(data=dataframe_series.values)</span><br><span class="line"></span><br><span class="line">    import numpy as np</span><br><span class="line">    import pandas as pd</span><br><span class="line">    from sklearn import preprocessing</span><br><span class="line">    # 生成训练数据x并做归一化后，构造成dataframe格式，再转换为tensor格式</span><br><span class="line">    df = pd.DataFrame(data=preprocessing.MinMaxScaler().fit_transform(np.random.randint(0, 10, size=(2000, 300))))</span><br><span class="line">    y = pd.Series(np.random.randint(0, 2, 2000))</span><br><span class="line">    return get_tensor_from_pd(df).float(), get_tensor_from_pd(y).float()</span><br><span class="line"></span><br><span class="line">class LstmAutoEncoder(nn.Module):</span><br><span class="line">    def __init__(self, input_layer=300, hidden_layer=100, batch_size=20):</span><br><span class="line">        super(LstmAutoEncoder, self).__init__()</span><br><span class="line"></span><br><span class="line">        self.input_layer = input_layer</span><br><span class="line">        self.hidden_layer = hidden_layer</span><br><span class="line">        self.batch_size = batch_size</span><br><span class="line">        self.encoder_lstm = nn.LSTM(self.input_layer, self.hidden_layer, batch_first=True)</span><br><span class="line">        self.decoder_lstm = nn.LSTM(self.hidden_layer, self.input_layer, batch_first=True)</span><br><span class="line"></span><br><span class="line">    def forward(self, input_x):</span><br><span class="line">        input_x = input_x.view(len(input_x), 1, -1)</span><br><span class="line">        # encoder</span><br><span class="line">        encoder_lstm, (n, c) = self.encoder_lstm(input_x,</span><br><span class="line">                                                 (torch.zeros(1, self.batch_size, self.hidden_layer),</span><br><span class="line">                                                  torch.zeros(1, self.batch_size, self.hidden_layer)))</span><br><span class="line">        # decoder</span><br><span class="line">        decoder_lstm, (n, c) = self.decoder_lstm(encoder_lstm,</span><br><span class="line">                                                 (torch.zeros(1, self.batch_size, self.input_layer),</span><br><span class="line">                                                  torch.zeros(1, self.batch_size, self.input_layer)))</span><br><span class="line">        return decoder_lstm.squeeze()</span><br><span class="line"></span><br><span class="line">class LstmFcAutoEncoder(nn.Module):</span><br><span class="line">    def __init__(self, input_layer=300, hidden_layer=100, batch_size=20):</span><br><span class="line">        super(LstmFcAutoEncoder, self).__init__()</span><br><span class="line"></span><br><span class="line">        self.input_layer = input_layer</span><br><span class="line">        self.hidden_layer = hidden_layer</span><br><span class="line">        self.batch_size = batch_size</span><br><span class="line"></span><br><span class="line">        self.encoder_lstm = nn.LSTM(self.input_layer, self.hidden_layer, batch_first=True)</span><br><span class="line">        self.encoder_fc = nn.Linear(self.hidden_layer, self.hidden_layer)</span><br><span class="line">        self.decoder_lstm = nn.LSTM(self.hidden_layer, self.input_layer, batch_first=True)</span><br><span class="line">        self.decoder_fc = nn.Linear(self.hidden_layer, self.hidden_layer)</span><br><span class="line">        self.relu = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    def forward(self, input_x):</span><br><span class="line">        input_x = input_x.view(len(input_x), 1, -1)</span><br><span class="line">        # encoder</span><br><span class="line">        encoder_lstm, (n, c) = self.encoder_lstm(input_x,</span><br><span class="line">                                                 # shape: (n_layers, batch, hidden_size)</span><br><span class="line">                                                 (torch.zeros(1, self.batch_size, self.hidden_layer),</span><br><span class="line">                                                  torch.zeros(1, self.batch_size, self.hidden_layer)))</span><br><span class="line">        encoder_fc = self.encoder_fc(encoder_lstm)</span><br><span class="line">        encoder_out = self.relu(encoder_fc)</span><br><span class="line">        # decoder</span><br><span class="line">        decoder_fc = self.relu(self.decoder_fc(encoder_out))</span><br><span class="line">        decoder_lstm, (n, c) = self.decoder_lstm(decoder_fc,</span><br><span class="line">                                                 (torch.zeros(1, 20, self.input_layer),</span><br><span class="line">                                                  torch.zeros(1, 20, self.input_layer)))</span><br><span class="line">        return decoder_lstm.squeeze()</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # 得到数据</span><br><span class="line">    x, y = get_train_data()</span><br><span class="line">    train_loader = Data.DataLoader(</span><br><span class="line">        dataset=Data.TensorDataset(x, y),  # 封装进Data.TensorDataset()类的数据，可以为任意维度</span><br><span class="line">        batch_size=20,  # 每块的大小</span><br><span class="line">        shuffle=True,  # 要不要打乱数据 (打乱比较好)</span><br><span class="line">        num_workers=2,  # 多进程（multiprocess）来读数据</span><br><span class="line">    )</span><br><span class="line">    # 建模三件套：loss，优化，epochs</span><br><span class="line">    model = LstmAutoEncoder()  # lstm</span><br><span class="line">    # model = LstmFcAutoEncoder()  # lstm+fc模型</span><br><span class="line">    loss_function = nn.MSELoss()  # loss</span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)  # 优化器</span><br><span class="line">    epochs = 150</span><br><span class="line">    # 开始训练</span><br><span class="line">    model.train()</span><br><span class="line">    for i in range(epochs):</span><br><span class="line">        for seq, labels in train_loader:</span><br><span class="line">            optimizer.zero_grad()</span><br><span class="line">            y_pred = model(seq).squeeze()  # 压缩维度：得到输出，并将维度为1的去除</span><br><span class="line">            single_loss = loss_function(y_pred, seq)</span><br><span class="line">            # 若想要获得类别，二分类问题使用四舍五入的方法即可：print(torch.round(y_pred))</span><br><span class="line">            single_loss.backward()</span><br><span class="line">            optimizer.step()</span><br><span class="line">            print(&quot;Train Step:&quot;, i, &quot; loss: &quot;, single_loss)</span><br><span class="line">		# 每20次，输出一次前20个的结果，对比一下效果</span><br><span class="line">        if i % 20 == 0:</span><br><span class="line">            test_data = x[:20]</span><br><span class="line">            y_pred = model(test_data).squeeze()  # 压缩维度：得到输出，并将维度为1的去除</span><br><span class="line">            print(&quot;TEST: &quot;, test_data)</span><br><span class="line">            print(&quot;PRED: &quot;, y_pred)</span><br><span class="line">            print(&quot;LOSS: &quot;, loss_function(y_pred, test_data)) </span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://southner.top">southner</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://southner.top/2022/06/17/lstm%E6%80%BB%E7%BB%93/">http://southner.top/2022/06/17/lstm总结/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://southner.top" target="_blank">南风er的小窝</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></div><div class="post_share"><div class="social-share" data-image="http://picgo.southner.top/cover2.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/06/17/conda-%E4%BD%BF%E7%94%A8/" title="Conda 使用"><img class="cover" src="http://picgo.southner.top/cover11.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-17</div><div class="title">Conda 使用</div></div></a></div><div><a href="/2022/06/17/tensorboard%E4%BD%BF%E7%94%A8/" title="Tensorboard使用"><img class="cover" src="http://picgo.southner.top/cover5.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-17</div><div class="title">Tensorboard使用</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E8%B5%84%E6%96%99"><span class="toc-text">0. 资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-LSTM"><span class="toc-text">1 LSTM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-0-RNN"><span class="toc-text">1.0 RNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%99%AE%E9%80%9ARNN"><span class="toc-text">1.1 普通RNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BB%80%E4%B9%88%E6%98%AFLSTM"><span class="toc-text">1.2 什么是LSTM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%B7%B1%E5%85%A5LSTM%E7%BB%93%E6%9E%84"><span class="toc-text">1.3 深入LSTM结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E6%80%BB%E7%BB%93"><span class="toc-text">1.4 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-nn-lstm"><span class="toc-text">2 nn.lstm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%8F%82%E6%95%B0"><span class="toc-text">2.1 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%BE%93%E5%85%A5-inputs%EF%BC%8C-h-0-c-0"><span class="toc-text">2.2 输入 inputs，(h_0,c_0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA-output-h-n-c-n"><span class="toc-text">输出: output, (h_n, c_n)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3"><span class="toc-text">理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-pytorch-%E5%AE%9E%E7%8E%B0-LSTM-AutoEncoder"><span class="toc-text">3 pytorch 实现 LSTM AutoEncoder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-0-%E6%9D%A5%E6%BA%90"><span class="toc-text">3.0 来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-LSTM-AutoEncoder%E7%AE%80%E4%BB%8B"><span class="toc-text">3.1 LSTM AutoEncoder简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-LSTM-AutoEncoder-%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.2 LSTM AutoEncoder 实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%9F%BA%E6%9C%ACLSTM-AutoEncoder%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-text">3.3 基本LSTM AutoEncoder网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-LSTM-Fc-AutoEncoder%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-text">3.4 LSTM+Fc AutoEncoder网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E6%A1%88%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-text">3.5 案例代码</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By southner</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="http://www.beian.miit.gov.cn/"><img class="icp-icon" src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png"><span>陕ICP备20012321号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

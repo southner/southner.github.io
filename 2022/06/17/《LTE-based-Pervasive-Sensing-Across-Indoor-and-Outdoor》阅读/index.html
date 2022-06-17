@@ -1,0 +1,389 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>《LTE-Based Pervasive Sensing Across Indoor and Outdoor》阅读 | 南风er的小窝</title><meta name="keywords" content="LTE传感"><meta name="author" content="southner"><meta name="copyright" content="southner"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于LTE的室内室外普适传感ABSTRACT除了通信功能之外，无线信号最近还被用于传感目的，实现了多种应用。然而，设计一个无线传感系统，在城市甚至国家范围内提供真正普遍的覆盖，同时不影响正在进行的数据通信，仍然是一个挑战。在这项工作中，我们建议将普及的LTE信号纳入无线传感生态系统。虽然LTE感知解决了覆盖问题，并且没有损害通信功能，但它带来了独特的挑战。由于LTE基站和终端之间的距离很远，LTE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《LTE-Based Pervasive Sensing Across Indoor and Outdoor》阅读">
+<meta property="og:url" content="http://southner.top/2022/06/17/%E3%80%8ALTE-based-Pervasive-Sensing-Across-Indoor-and-Outdoor%E3%80%8B%E9%98%85%E8%AF%BB/">
+<meta property="og:site_name" content="南风er的小窝">
+<meta property="og:description" content="基于LTE的室内室外普适传感ABSTRACT除了通信功能之外，无线信号最近还被用于传感目的，实现了多种应用。然而，设计一个无线传感系统，在城市甚至国家范围内提供真正普遍的覆盖，同时不影响正在进行的数据通信，仍然是一个挑战。在这项工作中，我们建议将普及的LTE信号纳入无线传感生态系统。虽然LTE感知解决了覆盖问题，并且没有损害通信功能，但它带来了独特的挑战。由于LTE基站和终端之间的距离很远，LTE">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://picgo.southner.top/cover5.png">
+<meta property="article:published_time" content="2022-06-17T05:00:18.000Z">
+<meta property="article:modified_time" content="2022-06-17T05:01:33.436Z">
+<meta property="article:author" content="southner">
+<meta property="article:tag" content="LTE传感">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://picgo.southner.top/cover5.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://southner.top/2022/06/17/%E3%80%8ALTE-based-Pervasive-Sensing-Across-Indoor-and-Outdoor%E3%80%8B%E9%98%85%E8%AF%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: southner","link":"链接: ","source":"来源: 南风er的小窝","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '《LTE-Based Pervasive Sensing Across Indoor and Outdoor》阅读',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-06-17 13:01:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/southner.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('http://picgo.southner.top/cover5.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">南风er的小窝</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">《LTE-Based Pervasive Sensing Across Indoor and Outdoor》阅读</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-17T05:00:18.000Z" title="发表于 2022-06-17 13:00:18">2022-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-06-17T05:01:33.436Z" title="更新于 2022-06-17 13:01:33">2022-06-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A7%91%E7%A0%94/">科研</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A7%91%E7%A0%94/%E5%A4%A7%E7%BB%84%E4%BC%9A%E5%88%86%E4%BA%AB/">大组会分享</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">14.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>45分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="《LTE-Based Pervasive Sensing Across Indoor and Outdoor》阅读"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="基于LTE的室内室外普适传感"><a href="#基于LTE的室内室外普适传感" class="headerlink" title="基于LTE的室内室外普适传感"></a>基于LTE的室内室外普适传感</h1><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p>除了通信功能之外，无线信号最近还被用于传感目的，实现了多种应用。然而，设计一个无线传感系统，在城市甚至国家范围内提供真正普遍的覆盖，同时不影响正在进行的数据通信，仍然是一个挑战。在这项工作中，我们建议将普及的LTE信号纳入无线传感生态系统。虽然LTE感知解决了覆盖问题，并且没有损害通信功能，但它带来了独特的挑战。由于<strong>LTE基站和终端之间的距离很远，LTE信号在传播过程中会与各种物体相互作用，这导致了感知中的严重干扰</strong>。我们通过设计精密的信号处理方案来对抗严重的干扰，从而实现LTE传感。我们通过两个典型应用来展示LTE检测的优势:<strong>室内呼吸检测和室外交通监控</strong>。大量的实验表明，该系统可以实现高精度的呼吸感知，同时大大缓解了盲点和方向敏感问题。对于交通监控，汽车速度估计的误差低于2英里/小时，与市场上的商业设备一样好。</p>
+<h2 id="1-INTRODUCTION"><a href="#1-INTRODUCTION" class="headerlink" title="1. INTRODUCTION"></a>1. INTRODUCTION</h2><p>在过去的几年里，无线传感已经成为一个热门的研究领域。与传统的基于传感器的传感不同，无线传感依靠目标反射的信号来获取目标信息。无线传感的非接触特性在当前的COVID疫情中尤其具有吸引力。各种无线技术已经被开发用于感测，包括WiFi  [25，33，47]，RFID [45]，毫米波[9，18]和LoRa  [42，43，48，49]。在这些技术中，由于WiFi接入点(AP)在室内环境中的普遍部署，WiFi传感引起了最大的关注。已经提出了大量基于WiFi的传感应用，例如手势识别[24，52]、呼吸监测[36，47，50]和活动跟踪[25，40]。</p>
+<p>虽然前景看好，但<strong>WiFi信号只覆盖室内环境，这只是整个区域的一小部分</strong>。此外，我们观察到，即使在密集部署了WiFi接入点的大学建筑内，覆盖范围仍然不足以实现传感目的。这是因为WiFi接入点是为通信而部署的，通信覆盖和感知覆盖之间存在巨大差距。虽然light-of-sight(LoS)信号和反射信号都可以用于通信，但是只有来自目标的弱反射信号包含感测信息。因此，虽然室内环境中的WiFi通信范围可以达到30-50米，但最先进的感应范围仅为5-10米[40，47]。因此，即使在室内环境中，部署的WiFi基础设施也只能覆盖一小部分区域进行感测。在一个典型的房子里，一个WiFi接入点通常可以覆盖整个房子进行通信，但只能覆盖靠近接入点的一个或两个房间进行传感。根据我们的实证研究，在典型的大学建筑中，只有15%的区域在WiFi感应范围内。</p>
+<p>另一个没有得到太多关注的实际问题是，<strong>WiFi感应会极大地影响WiFi数据通信</strong>。由于相邻数据包之间的随机时间间隔和频繁的丢包，不可控的WiFi数据包不适合感知。另一方面，WiFi信标在时间上是均匀分布的，但是信标频率(10  Hz)对于许多传感应用来说不够高。因此，现有的WiFi传感系统需要完全控制WiFi设备以高频率(100-250  Hz)传输专用哑包，以支持手势识别[2，35]和步态识别[20，37]等传感应用。这种专用的分组传输极大地影响了WiFi的主要通信功能。</p>
+<p>WiFi感测的第三个问题是<strong>感测性能对目标位置和方向高度敏感</strong>。这是阻碍WiFi感应在现实世界中采用的主要限制。以呼吸感测为例，当目标轻微移动或改变方向时，感测性能会严重下降。位置依赖性导致无线传感中的盲点问题[50]。</p>
+<p>鉴于上述问题，我们的结论是，虽然WiFi在室内环境中普遍用于通信，但它在传感方面并不普遍。WiFi感应也影响通信，感应性能不稳定。</p>
+<p>在这项工作中，我们提出了这样一个问题:我们能否在不影响数据通信的情况下实现真正普遍而可靠的传感？我们建议利用LTE信号来实现上述目标，而不是使用WiFi信号进行感测。下面我们将介绍LTE信号的独特特性以及利用LTE信号进行传感的优势。</p>
+<ul>
+<li><strong>覆盖无孔不入</strong>。LTE基站遍布全国，LTE信号不仅覆盖室内，还覆盖室外环境。根据2020年美国官方通信市场报告[11]，98%的人口和84%的地区被LTE网络覆盖。</li>
+<li><strong>频率分集和空间分集</strong>。LTE信号占用了从400 MHz到6 GHz的大频率范围，有30多个频段。相比之下，WiFi接入点主要工作在2.4 GHz和5  GHz两个窄带上。此外，LTE基站被精细地部署以形成六边形平铺，使得通常有多个LTE基站分布在用户周围[17]。在我们的实验中，位于郊区的大学可以检测到超过15个不同频率的基站。</li>
+<li><strong>永恒的高速率统一帧</strong>。与用于WiFi的基于竞争的CSMA/CA协议不同，LTE传输是在时域和频域中在相邻LTE基站之间精确组织的。LTE帧在时域中均匀分布。即使当没有数据传输正在进行时，永久广播的参考子帧(类似于WiFi信标)可以达到1000  Hz的频率，这比WiFi信标的频率(10 Hz)高得多。因此，不需要发送影响数据通信的用于感测的专用帧。</li>
+</ul>
+<p>这些独特的功能为LTE带来了超越WiFi和其他信号的优势。LTE信号的全国覆盖支持室内和室外环境的无处不在的传感。频率和空间的多样性有助于克服WiFi传感中众所周知的盲点问题和方向敏感问题。统一的帧传输对于感测目的来说基本上是理想的。参考帧的高频广播使LTE能够感知高速运动，这在以前是WiFi感知的挑战。不需要传输任何专用帧来进行感测，通信功能不受影响，这对于无线感测的实际应用是至关重要的。</p>
+<p>受LTE信号独特特性的启发，我们提出了LTETrack，这是一种新的传感模式，利用LTE信号实现真正的普适传感。我们通过两个典型应用展示了LTE强大的传感能力:室内呼吸传感和室外交通监控。</p>
+<p>呼吸感测是细粒度活动感测的一个例子。呼吸过程中的胸部位移约为0.5厘米[50]。对于呼吸感测，我们利用LTE信号的频率和空间差异来解决方向敏感问题和盲点问题。交通监控是高速运动跟踪的一个例子。由于分组频率较低，WiFi信号难以准确跟踪速度大于5米/秒的运动。我们表明，利用LTE的高帧频，我们可以跟踪以50英里/小时(即22米/秒，比人走路快15倍)移动的汽车。我们展示了LTE信号可以用来计算经过的汽车数量以及汽车速度。</p>
+<p>虽然很有希望，但在我们将我们的想法转化为功能系统之前，需要应对挑战。由于从LTE基站到LTE终端的传播距离较长(200 m到10  km)，接收信号的信噪比(SNR)通常比WiFi信号低25 - 40  dB。因此，<strong>由目标运动引起的信号变化很容易被淹没在噪声中</strong>。此外，由于传播路径长，在信号传播过程中，会<strong>有更多来自移动物体(如摇摆的树木、移动的汽车和行人)的干扰</strong>。为了减轻干扰的影响，我们提出了坐标移位和多基站合并的信号处理方法。利用精密的信号处理，我们可以利用LTE基站的免费信号实现精确的呼吸检测和车速测量。</p>
+<p>我们将这项工作的主要贡献总结如下:</p>
+<ul>
+<li>我们有效地利用LTE的独特功能来解决与现有无线传感系统相关的几个基本问题。我们相信LTE传感向真正的普及传感迈进了一步。</li>
+<li>我们提出了精密的信号处理方案来对抗严重的干扰，使LTE传感成为可能。</li>
+<li>我们通过呼吸检测和流量监控这两个典型应用来展示LTE检测的独特优势。大量实验表明，该系统能够实现准确的呼吸感知，并大大缓解了盲点和方向敏感问题。对于交通监控，汽车速度估计误差低于2英里/小时，与市场上的商业设备一样好。</li>
+</ul>
+<p>本文的其余部分组织如下。第2节介绍LTE感知的相关基础知识。第3节详细解释了LTE检测的独特优势。第4节介绍挑战和信号预处理步骤。第5节和第6节介绍了两种检测应用的设计。第7节介绍了两种应用的硬件实现和详细评估。第8节概述了相关工作。第9节讨论了局限性，第10节给出了结论。</p>
+<h2 id="2-LTE-PRELIMINARY"><a href="#2-LTE-PRELIMINARY" class="headerlink" title="2. LTE PRELIMINARY"></a>2. LTE PRELIMINARY</h2><p>在本节中，我们介绍LTE协议的背景知识以及与感测相关的CSI测量。有两种类型的LTE物理层模式，即频分双工(FDD)模式和时分双工(TDD)模式。我们在设计中关注FDD，因为它是商用LTE网络中最广泛采用的模式。</p>
+<h3 id="2-1-LTE-physical-layer-frame-structure"><a href="#2-1-LTE-physical-layer-frame-structure" class="headerlink" title="2.1 LTE physical-layer frame structure"></a>2.1 LTE physical-layer frame structure</h3><p>如图1  (a)所示，LTE物理层基于帧结构，在时域上分为10毫秒的帧。每个帧被进一步分成一毫秒的子帧。每个子帧包含14个OFDM符号。LTE将14个OFDM符号(时域)和12个子载波(频域)组成一个基本的时频单元，称为资源块(RB)，如图1  (b)所示。</p>
+<p><img src="http://picgo.southner.top/image-20220328105206525.png" alt="image-20220328105206525"></p>
+<p>图1:(a)LTE  物理层中的时频资源网格。(b)一个资源块在时间上包含14个OFDM符号，在频率上包含12个子载波。四种颜色代表由四个发射器天线发射的参考信号。</p>
+<h3 id="2-2-Channel-measurement-in-cellular-network"><a href="#2-2-Channel-measurement-in-cellular-network" class="headerlink" title="2.2 Channel measurement in cellular network"></a>2.2 Channel measurement in cellular network</h3><p>LTE收发器利用信道状态信息(channel state information)(CSI)测量来逆转传播信道对帧解码的影响。为了便于信道估计，LTE基站<strong>发送预定义的参考信号</strong>。LTE终端能够使用接收到的参考信号来估计信道。具体地，如果我们使用$X(s,f)$来表示发送的已知参考信号，使用$Y(s,f)$来表示在第$s$个OFDM符号第$f$个子载波上接收的参考信号，则CSI $H(s,f)$可以计算为:</p>
+<p><img src="http://picgo.southner.top/image-20220328105737919.png" alt="image-20220328105737919"></p>
+<p>$\alpha{_l}$表示复合衰减,$d{_l}$表示第l条信道的长度，L是路径的数量，$\lambda$是信号的波长,$n(s,f)$表示噪音。在图1  (b)中，我们显示了参考信号在每个资源块中的分布，用四种不同的颜色(红色、蓝色、绿色和黄色)表示基站的四个发射天线。终端首先估计包含参考信号的第$s$个OFDM符号的第$f$个子载波的信道，然后在时间和频率上进行改值以获得完整的CSI矩阵。</p>
+<h2 id="3-ADVANTAGES-OF-LTE-SENSING"><a href="#3-ADVANTAGES-OF-LTE-SENSING" class="headerlink" title="3. ADVANTAGES OF LTE SENSING"></a>3. ADVANTAGES OF LTE SENSING</h2><p>在本节中，我们将详细解释使用LTE信号进行检测的独特优势。</p>
+<ul>
+<li>无孔不入的覆盖。 <ul>
+<li>部署的LTE基础设施的广泛覆盖范围提供了当前技术(包括WiFi、蓝牙和LoRa)无法实现的传感覆盖范围，从而为设计城市甚至国家规模的无缝传感应用打开了一个新窗口。</li>
+</ul>
+</li>
+<li>自由访问。<ul>
+<li>基站24小时广播参考信号，接收机设备可以被动地监听和解码从任意基站发送的参考信号。因为解码参考信号不需要与基站握手，所以不需要购买用于LTE感测的数据计划。总之，广播的LTE参考信号是可用于感测的免费资源。</li>
+</ul>
+</li>
+<li>组织良好的高频通道采样。 <ul>
+<li>如图1  (a)所示，LTE帧和子帧组织良好，没有任何帧间间隙。因此，两个连续子帧的相应CSI之间具有严格的1毫秒间隔。这种组织良好的均匀采样非常适合离散信号处理。如果没有专用控制，其他无线技术，如使用CSMA/CA的WiFi和使用ALOHA的LoRa，就不能保证均匀采样。如果盲目假设均匀采样，这种不均匀采样会导致复杂的信号处理设计或严重的检测性能下降。 </li>
+<li>另一个独特的优势是CSI采样频率非常高。如果我们对每个子帧采样一次，我们可以获得每秒1000个CSI读数。对于涉及高速运动(如汽车跟踪)或高频运动(如电机振动检测)的应用，这种高频率至关重要。</li>
+</ul>
+</li>
+<li>不影响正在进行的数据通信。<ul>
+<li>如图1  (b)所示，蜂窝协议保留了包含参考信号的时频时隙，因此传输参考信号不会影响正常的数据传输。另一方面，使用WiFi或LoRa信号进行感测通常需要传输专用数据包，这会占用正常数据传输的空中时间，并影响整体网络吞吐量。</li>
+</ul>
+</li>
+<li>频率和空间多样性。<ul>
+<li>LTE基础设施提供丰富的频率和空间多样性，可用于提高检测性能。一方面，单个基站支持从200米(城市地区)到10公里(农村地区)的大范围覆盖[14]。蜂窝服务提供商还精心优化了LTE基站的布局，以最大限度地扩大信号覆盖范围。因此，一个移动设备可能会无意中听到部署在不同位置的多个基站。根据我们的实验结果，我们能够检测到我们学校内的15个基站。监听到的基站的不同位置提供了空间分集。结合来自各种操作频率(例如，739  Hz、1937.5 Hz和2115 Hz)的感测信息，可以减轻无线感测中的方向敏感和盲点问题。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-SIGNAL-PREPROCESSING"><a href="#4-SIGNAL-PREPROCESSING" class="headerlink" title="4. SIGNAL PREPROCESSING"></a>4. SIGNAL PREPROCESSING</h2><p>虽然LTE检测有许多优势，但在实现LTE检测之前，我们还需要应对一些挑战。在本节中，我们将介绍这些挑战，并提出应对这些挑战的相应方法。</p>
+<h3 id="4-1-Challenges"><a href="#4-1-Challenges" class="headerlink" title="4.1 Challenges"></a>4.1 Challenges</h3><p>在利用LTE信号执行检测任务时，我们观察到三大挑战，总结如下:</p>
+<ul>
+<li>随机相位偏移。<ul>
+<li>LTE基站和终端之间缺乏同步导致随机相位偏移，包括载波频率偏移carrier frequency offset(CFO)、采样频率偏移sampling frequency offset(SFO)和采样定时偏移sampling timing off-set (STO),破坏了对于感测来说至关重要的相位信息。</li>
+</ul>
+</li>
+<li>来自远处移动物体的干扰。<ul>
+<li>由于基站可能在数公里之外，到达LTE接收机的信号会与图2所示传播路径上的各种移动物体相互作用，例如摇摆的树木、移动的汽车和行人。这种相互作用对接收信号造成严重的动态干扰。</li>
+</ul>
+</li>
+<li><strong>缓慢衰落</strong><ul>
+<li>当山丘或大型建筑等较大障碍物遮挡了收发器之间的主要信号路径时，就会发生慢衰落[12]，这对于LTE信号来说非常常见。慢衰落会导致信号波动，这些波动与我们日常活动的频率范围相同，例如人的呼吸。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-Signal-processing-step-by-step"><a href="#4-2-Signal-processing-step-by-step" class="headerlink" title="4.2 Signal processing step by step"></a>4.2 Signal processing step by step</h3><p>我们提出了三种相应的信号处理方案来逐步解决上述挑战。</p>
+<h4 id="4-2-1-随机相位偏移消除。"><a href="#4-2-1-随机相位偏移消除。" class="headerlink" title="4.2.1 随机相位偏移消除。"></a>4.2.1 随机相位偏移消除。</h4><p>​    为了获得稳定的检测相位，我们需要消除由CFO、SFO和STO引起的相位偏移。为了促进接收的多样性，LTE接收机通常有两个无线电链与两个天线相连。由于这些无线电链共享同一个振荡器，这两个无线电链的随机相位偏移是相同的[47]。通过在来自两个天线的复数CSI之间进行除法运算，我们能够消除公共随机相位偏移并获得用于感测的稳定相位差。图3显示了<strong>随机相位去除</strong>的效果，其中灰色圆圈表示来自一个天线的原始CSI的相位读数。我们可以看到，随机相位偏移会导致所有方向的相位漂移，即所有360°方向。去除随机相位偏移后，我们在两个天线之间获得稳定的相位差(蓝色圆圈),该相位差落在约25°的小范围内。</p>
+<p><img src="http://picgo.southner.top/image-20220329201732750.png" alt="image-20220329201732750"></p>
+<h3 id="4-2-2-干扰缓解。"><a href="#4-2-2-干扰缓解。" class="headerlink" title="4.2.2 干扰缓解。"></a>4.2.2 干扰缓解。</h3><p>消除随机相位偏移后，我们可以获得稳定的相位读数，从而清洁I-Q平面中的CSI。CSI由来自信号路径的信息组成，包括静态路径和动态路径[38]。图4显示了一条从目标反射的动态路径和一条组合静态路径的情况。[−$\theta$  ,$\theta$  ]中的相位变化随时间形成类似正弦的图案。这与周期性目标运动相匹配，然后我们可以从信号相位变化中提取运动信息。实际上，使用LTE信号进行检测会受到其他移动物体的干扰反射。我们提出了一种称为启发式坐标移位的信号处理方案来减轻来自其他反射器的动态干扰。</p>
+<p><img src="http://picgo.southner.top/image-20220329201936351.png" alt="image-20220329201936351"></p>
+<h5 id="关键发现"><a href="#关键发现" class="headerlink" title="关键发现"></a><strong>关键发现</strong></h5><p>我们的解决方案的关键直觉是相位变化的量随着不同的坐标而变化。因此，通过搜索最佳坐标，我们可以放大由目标引起的相位变化，同时抑制由其他干扰反射体引起的相位变化。我们使用图5中的例子来说明这个概念。绿色弧线表示I-Q平面中复数复合信号的变化。有趣的是，从不同的坐标($C_1-C_5$ )观察到的相位变化有很大的不同。在$C_1$中的小相位变化逐步增加到$C_5$中的180度。</p>
+<p><img src="http://picgo.southner.top/image-20220329203308096.png" alt="image-20220329203308096"></p>
+<p>我们现在解释如何解决干扰。如图6所示，我们分别在坐标$C_1$号(橙色)和$C_2$号(紫色)中观察到了目标和干扰引起的相位变化。我们可以看到，当我们将坐标从$C_1$改变为$C_2$时，目标引起的相位变化显著增加。另一方面，减少了干扰引起的相位变化。</p>
+<p><img src="http://picgo.southner.top/image-20220329203648888.png" alt="image-20220329203648888"></p>
+<p><strong>通过坐标变化放大目标引起的相位变化和抑制干扰引起的相位变化。</strong></p>
+<h5 id="启发式坐标转换。"><a href="#启发式坐标转换。" class="headerlink" title="启发式坐标转换。"></a>启发式坐标转换。</h5><p>基于上述直觉，我们搜索能够最大化由目标引入的相位变化的最佳坐标。</p>
+<p>为了最大化相位变化，我们利用的另一个重要特性是，许多应用引起的相位变化是周期性的。诸如呼吸的周期性运动显然会引起周期性的相位变化。<strong>汽车运动也引起了近似周期性的相位变化</strong>。这是因为在短时间窗内(例如，0.2  s)，汽车速度可以被假定为恒定的。由于汽车的高速，信号相位在短时间窗内变化多个周期，并且相位变化显示出粗略的周期性。当干扰较小时，相位变化模式以及相应的周期性更清晰，如图6(e)所示。基于周期性的特性，我们寻找可以最大化所观察到的相位变化的自相关的最佳坐标。对于具有N个复信号样本的时间窗{  ($x_1$ ,$y_1$)， ($x_2$ ,$y_2$)，…， ($x_n$ ,$y_n$) }，相位变化的自相关计算如下:</p>
+<p><img src="http://picgo.southner.top/image-20220329204306024.png" alt="image-20220329204306024"></p>
+<p>$\theta_k$是样本$(x_k,y_k)$的相位值，$\tau$是自相关的时延。相位值$\theta_k$由以下坐标决定。</p>
+<p><img src="http://picgo.southner.top/image-20220330160442870.png" alt="image-20220330160442870"></p>
+<p>$(O_x,O_y)$是原点坐标，结合公式2和公式3，我们推导出我们的最终目标函数$R_\tau(O_x,O_y)$以及解决的优化问题。</p>
+<p><img src="http://picgo.southner.top/image-20220330160657050.png" alt="image-20220330160657050"></p>
+<p>在公式4描述的优化问题是由约束的非线性目标函数，我们采用迭代梯度下降算法[13]来解决它。第7.2.1节介绍了启发式搜索的评估。</p>
+<p>我们需要根据检测应用调整几个超参数。我们需要调整的第一个参数是观察窗口的长度。利用更大的窗口，我们有更多数量的相位周期（一个相位周期相当于360度）用于相关计算，并且因此有更精确的搜索结果。然而，更大的窗口也带来了更高的计算开销。因此，我们基于应用来调整观察窗口的长度。对于导致更短相位周期的更大的目标速度，我们相应地减小观察窗的长度。例如，对于呼吸监测，观察窗的长度设置为12秒，对于车速测量，观察窗的长度设置为0.2秒。</p>
+<p>还可以限制时延$\tau$的搜索范围，以减少计算量。对于呼吸来说，人的呼吸速率范围在10 bpm到37 bpm之间[47]。因此，我们将$\tau$的搜索范围设置为$[  \frac{60}{37} × 50，\frac{60}{10} × 50]$，其中$\frac{60}{10}$ × 50表示采样速率为50 Hz时，10 bpm呼吸速率的样本数的时延。</p>
+<h3 id="4-2-3-残余噪声消除"><a href="#4-2-3-残余噪声消除" class="headerlink" title="4.2.3 残余噪声消除"></a>4.2.3 残余噪声消除</h3><p>在减轻干扰的影响之后，我们仍然需要处理由<strong>慢衰落</strong>引起的大规模信号变化[12]。<strong>缓慢衰落是由大型障碍物(如建筑物或山丘)造成的，因此对于WiFi感应来说不是问题</strong>。对于LTE信号，由于长距离传播，慢衰落通常是显著的，并且<strong>慢衰落引起的变化有时可能大于目标移动引起的变化</strong>，从而降低了感测性能。我们还观察到<strong>在频域中慢衰落的频率相当接近于目标运动的频率</strong>。因此，<strong>传统的基于FFT的滤波方法在消除慢衰落方面表现不佳</strong>。图7  (c)显示了在[0.16$Hz$− 0.62$Hz$ ]范围(对应于呼吸率为10 bpm至37  bpm)内进行带通滤波后的结果。我们可以看到仍然存在剩余的慢衰落，并且周期性信号变化模式仍然是失真的。</p>
+<p><img src="http://picgo.southner.top/image-20220330161902297.png" alt="image-20220330161902297"></p>
+<p>图7:基于FFT的滤波器和提议的WTMRA方案之间的比较。(a)坐标移动和平滑化后的相位变化。(b)由基于FFT的滤波器提取的慢衰落。(c)在使用基于FFT的滤波器去除慢衰落之后，提取目标运动信息。(d)由所提出的WTMRA方案提取的慢衰落。(e)在使用WTMRA去除慢衰落之后提取的目标运动信息。</p>
+<p>为了更好地消除低频慢衰落引起的信号变化，我们利用了基于小波的多分辨率分析(WTMRA)  [7]算法，这是一种专门用于低频分量提取的滤波器。WTMRA和基于FFT的滤波器之间的一个关键区别在于，<strong>WTMRA在低频部分具有更高的分辨率</strong>，因此可以在人类活动和慢衰落的频率区域中执行更细粒度的滤波。</p>
+<p>具体来说，WTMRA将慢衰落的原始信号分解成从最高Nyquist奈奎斯特频率(采样率的一半)到低频的多个分量。我们将组件的最大数量设置为10，这对于呼吸感测和车速估计都足够了。我们从低频到高频依次去除分量，并计算剩余信号的自相关。我们输出剩余的具有最高自相关的信号。比较图7所示的WTMRA和基于FFT的滤波的相应结果，我们可以看到WTMRA更好地分离了慢衰落，并有助于提取更清晰的目标感应信号变化模式。</p>
+<h2 id="5-RESPIRATION-SENSING"><a href="#5-RESPIRATION-SENSING" class="headerlink" title="5. RESPIRATION SENSING"></a>5. RESPIRATION SENSING</h2><p>经过信号预处理后，干扰和噪声的影响得到减轻。在本节中，我们将介绍与基于无线传感的现有呼吸监测相关的问题，并提出利用LTE信号的独特优势解决这些问题的方法。</p>
+<h3 id="5-1-Respiration-rate-estimation"><a href="#5-1-Respiration-rate-estimation" class="headerlink" title="5.1 Respiration rate estimation"></a>5.1 Respiration rate estimation</h3><p>为了提取呼吸率，我们对时域信号变化进行FFT运算，如图8  (a)所示，然后取峰值频率$f_0$来计算呼吸率，计算公式如下:</p>
+<p><img src="http://picgo.southner.top/image-20220330162414710.png" alt="image-20220330162414710"></p>
+<p><img src="http://picgo.southner.top/image-20220330162523030.png" alt="image-20220330162523030"></p>
+<p>图8:呼吸率估计和实验设置。(a)在信号预处理后获得的呼吸模式。(b)呼吸模式的FFT。峰值位置代表呼吸速率。(c)办公楼的走廊区域。(d)办公楼里的一间办公室被三堵墙与室外隔开。</p>
+<h3 id="5-2-Robustness-issues-鲁棒性问题"><a href="#5-2-Robustness-issues-鲁棒性问题" class="headerlink" title="5.2 Robustness issues 鲁棒性问题"></a>5.2 Robustness issues 鲁棒性问题</h3><p>现有的无线传感存在两个主要的鲁棒性问题:<strong>盲点问题</strong>和<strong>目标方位敏感问题</strong>。在本节中，我们简要介绍这两个问题，然后研究它们对基于LTE的呼吸检测的影响。</p>
+<h4 id="盲点问题"><a href="#盲点问题" class="headerlink" title="盲点问题"></a>盲点问题</h4><p>因为多路径而出现盲点。取决于相位差，来自两个传播路径的两个信号可能建设性地或破坏性地叠加。由于接收信号的低SNR，信号破坏性叠加的位置成为感测任务的盲点。</p>
+<h4 id="方向敏感问题。"><a href="#方向敏感问题。" class="headerlink" title="方向敏感问题。"></a>方向敏感问题。</h4><p>方向敏感是另一个影响无线传感鲁棒性的问题[36，47，50]。当信号从人体背部反射而不是从前胸反射时，由于呼吸过程中较小的背部位移，感应的信号变化要弱得多。</p>
+<h4 id="对基于LTE的呼吸检测的影响"><a href="#对基于LTE的呼吸检测的影响" class="headerlink" title="对基于LTE的呼吸检测的影响"></a>对基于LTE的呼吸检测的影响</h4><p>我们进行了一个实验来验证在基于LTE的感知中存在盲点问题和方向敏感问题。在本实验中，我们测量了从LTE终端附近的目标反射回来的信号强度。我们对中心频率为2115  MHz、1937.5 MHz和739  MHz的基站重复实验。测量的信号强度绘制在图9中，从中我们有三个观察结果。</p>
+<p>首先，信号强度沿信号径向呈现交替的峰谷模式，基于LTE的感知的盲点位于山谷区域。第二，峰谷模式是椭圆，椭圆的方向取决于基站的位置。第三，峰和谷区域的宽度取决于中心频率，即频率越低，峰或谷区域越宽。</p>
+<p><img src="http://picgo.southner.top/image-20220330163106810.png" alt="image-20220330163106810"></p>
+<p>​    图9：分别针对2115  MHz、1937.5 MHz和739 MHz基站的LTE终端周围的反射信号强度分布。三个基站位于不同的方向。结合来自多个基站的信息可增强呼吸检测性能。</p>
+<p>从图9中我们可以看出，基于LTE的检测仍然存在盲点。然而，与WiFi感测中几乎无法观察到功率的盲点不同[36]，图9中波谷的信号强度仍然保持在合理的高水平。此外，由于基站分布在不同的方向，椭圆的方向也不同，因此一个基站的盲点很可能不是另一个基站的盲点。方向问题仍然存在，因为信号强度模式仍然是一个椭圆，就像WiFi中的菲涅耳区[50]。如果我们结合多个基站的信号强度模式，目标不太可能在所有椭圆的谷区域中。</p>
+<h4 id="Takeaway"><a href="#Takeaway" class="headerlink" title="Takeaway"></a>Takeaway</h4><p>在LTE感测中仍然存在盲目运动问题和方向敏感问题。然而，通过充分利用由分布式基站提供的空间和频率分集，这些问题可以得到很好的缓解。</p>
+<h3 id="5-3-LTE-based-respiration-sensing-using-measurements-from-multiple-base-stations-使用来自多个基站的测量值进行基于LTE的呼吸感测"><a href="#5-3-LTE-based-respiration-sensing-using-measurements-from-multiple-base-stations-使用来自多个基站的测量值进行基于LTE的呼吸感测" class="headerlink" title="5.3 LTE-based respiration sensing using measurements from multiple base stations 使用来自多个基站的测量值进行基于LTE的呼吸感测"></a>5.3 LTE-based respiration sensing using measurements from multiple base stations 使用来自多个基站的测量值进行基于LTE的呼吸感测</h3><p>大量部署的LTE基站为实现真正反常的呼吸检测提供了机会，<strong>可以覆盖住宅和大型商业建筑</strong>。此外，LTE基站的频率和空间分集有助于提高系统的稳定性。因此，我们提出了一种方案，该方案结合了来自多个基站的信道测量，以实现普遍且鲁棒的呼吸感测。</p>
+<h4 id="Combining-information-from-multiple-base-stations-组合来自多个基站的信息"><a href="#Combining-information-from-multiple-base-stations-组合来自多个基站的信息" class="headerlink" title="Combining information from multiple base stations 组合来自多个基站的信息"></a>Combining information from multiple base stations 组合来自多个基站的信息</h4><p>每个基站都有一个唯一的小区标识符（<strong>cell identifier</strong>），它被编码到同步序列中[21]。每个LTE终端能够在与基站同步的初始阶段获取小区标识符。同等地组合来自所有基站的信道测量可能不会提高感测性能，因为那些不良的呼吸模式会导致大的误差。我们需要在组合中分配具有较大权重的高质量呼吸模式。因此，问题是<strong>如何定义一个高质量的呼吸模式</strong>？LTE通信主要依靠信号强度或信噪比来量化信号质量。然而，它们不是为感测而设计的，并且感测性能不能通过这些度量来完全量化。因此，我们定义了一个新的指标来量化LTE信号的呼吸检测质量，并将其命名为RSNR(呼吸信噪比)(Respiration SNR)。</p>
+<p> 经过信号预处理，我们得到了不同基站的呼吸模式。除呼吸频率外，总会有一些残余频率成分，如图8  (b)所示。我们<strong>计算峰值频率bin的功率和总功率之间的比率作为RSNR</strong>。我们使用获得的呼吸信噪比作为权重来组合从多个基站提取的呼吸模式。最终呼吸感知率计算如下:</p>
+<p><img src="http://picgo.southner.top/image-20220330163928621.png" alt="image-20220330163928621"></p>
+<p><img src="http://picgo.southner.top/image-20220330164046412.png" alt="image-20220330164046412"></p>
+<p>$RSNR_i$表示基站i的呼吸信噪比，$R_{LB_i}$ 表示使用公式5从基站i获得的呼吸率。</p>
+<p>我们根据经验移除那些SNR低于6  dB的基站，这些基站对呼吸率估计贡献很小。如第7.2.3节所示，通过组合来自多个基站的信息，可以显著减少盲点的数量。</p>
+<h2 id="6-SENSING-HIGH-SPEED-CAR-MOVEMENT"><a href="#6-SENSING-HIGH-SPEED-CAR-MOVEMENT" class="headerlink" title="6. SENSING HIGH SPEED CAR MOVEMENT"></a>6. SENSING HIGH SPEED CAR MOVEMENT</h2><p>感知户外环境中的高速运动是普适感知的重要组成部分。为了证明高速运动检测的有效性，我们构建了一个基于LTE的<strong>汽车速度估计</strong>和<strong>汽车计数</strong>系统。</p>
+<p>车速估计和车辆计数是许多城市交通监控和智能城市调度应用程序所需的基本服务。现有的商用技术主要基于相机、雷达和激光雷达。基于<strong>摄像机</strong>的方法受到光照、风、遮挡等的影响。基于<strong>雷达和激光雷达</strong>的汽车速度估计设备通常很昂贵，并且需要校准[8]才能正常工作。通过利用LTE信号的优势，我们首次提出了一种基于LTE的被动汽车运动检测系统，能够执行汽车速度估计和汽车计数。</p>
+<h3 id="6-1-Car-speed-estimation"><a href="#6-1-Car-speed-estimation" class="headerlink" title="6.1 Car speed estimation"></a>6.1 Car speed estimation</h3><p>汽车运动使得从汽车反射的信号上产生多普勒频移现象。因此，我们利用这个多普勒频移来估计汽车速度。通过应用第4节中介绍的信号预处理方案，我们能够恢复由汽车运动引起的清晰的信号相位变化，如图10  (a)所示。该相位变化可以进一步用于获得图10 (b)中的多普勒频移，用于速度估计。</p>
+<p><img src="http://picgo.southner.top/image-20220330164701464.png" alt="image-20220330164701464"></p>
+<p>Figure10. 车速估计的结果。(a)在信号预处理之后提取的相位变化。(b)对提取的相位变化进行FFT运算，选择频谱上的第一个峰值(不是0  Hz)作为多普勒频移。</p>
+<h4 id="Car-detection"><a href="#Car-detection" class="headerlink" title="Car detection"></a>Car detection</h4><p>在我们估计汽车速度之前，我们需要检测正在接近或离开LTE终端的汽车的存在。由于汽车运动导致周期性相位变化，如图10  (a)所示，我们利用第4.2节中介绍的基于窗口的自相关来检测运动汽车的存在。我们将窗口大小设置为0.2秒，相邻窗口之间有0.1秒的重叠，这足以检测由以20英里/小时移动的汽车引起的至少五个周期的相位变化。<strong>当观察到峰值大于其他峰值的五倍时，检测到移动的汽车</strong>。</p>
+<h4 id="Speed-estimation"><a href="#Speed-estimation" class="headerlink" title="Speed estimation"></a>Speed estimation</h4><p>我们首先对汽车速度和多普勒频移之间的关系进行建模。多普勒频移的根本原因是信号传播路径长度的变化[28]。当反射信号的路径长度改变一个波长时，相位旋转一个周期[47]。假设车辆沿着道路以速度$v$行驶，LTE终端被放在路边，然后我们有</p>
+<script type="math/tex; mode=display">
+v\ cos(\theta)T\ =\lambda</script><p>$T$是一个波长$\lambda$改变道路长度所需的时间周期。因此，由汽车运动而导致的LTE终端接收的信号产生的多普勒频移$f_s$为：</p>
+<p><img src="http://picgo.southner.top/image-20220330165539377.png" alt="image-20220330165539377"></p>
+<p>$\theta$是汽车运动方向和从汽车到LTE终端方向之间的角度，如图11 (a)所示。$\lambda$是接收到的LTE信号的波长。为了从接收信号中估计多普勒频移，我们对在一个相关窗口correlation window(即0.2秒)内接收的相位变化执行FFT。我们提取频谱上的最高峰，其频率是估计的多普勒频移$f_s$，如图10  (b)所示。</p>
+<p><img src="http://picgo.southner.top/image-20220330165834037.png" alt="image-20220330165834037"></p>
+<p>我们从公式7知道，为了计算汽车速度，我们仍然需要知道$\theta$，然而，它的值随着汽车的运动而变化，如图11  (b)所示。为了在$\theta$未知且随时间变化的情况下准确估计车速，我们提出了一种最大似然估计器。</p>
+<p>我们假设汽车的速度在两秒钟的周期内(10个相关窗口的周期)是一个常数。在每个相关窗口内，汽车行驶一段距离$\Delta l=vt$,t为0.2s，是窗口长度。假设在第一个窗口中汽车和LTE终端之间的水平和垂直距离是$l$和$d$,我们获得了第$i$个窗口的角度$\theta_i$</p>
+<p><img src="http://picgo.southner.top/image-20220330170303243.png" alt="image-20220330170303243"></p>
+<p>获得$\theta$后，我们计算理论的多普勒频移矩阵$F(d,l,v)$</p>
+<p><img src="http://picgo.southner.top/image-20220330170411627.png" alt="image-20220330170411627"></p>
+<p>$f_{s_i}(d,l,v)$表示第i个窗中引入的多普勒频移。另一方面，我们可以通过对接收到的相位变化执行FFT估计多普勒频移</p>
+<p><img src="http://picgo.southner.top/image-20220330170550955.png" alt="image-20220330170550955"></p>
+<p>然后，我们通过求解下面的最大似然问题来估计三个未知的参数$d,l,v$:</p>
+<p><img src="http://picgo.southner.top/image-20220330170644756.png" alt="image-20220330170644756"></p>
+<p>我们使用Gurobi库[15]解决了这个最大似然问题。我们每两秒钟更新一次估计值。</p>
+<h3 id="6-2-Car-counting"><a href="#6-2-Car-counting" class="headerlink" title="6.2  Car counting"></a>6.2  Car counting</h3><p>由于所提出的系统可以检测汽车的接近，自然地，我们的系统可以用于计算经过的汽车的数量。在大多数情况下，我们可以使用6.1节中介绍的方案来检测汽车。如图12  (a)和(b)所示，当两辆车彼此非常接近时，即使两辆车以相同的速度移动，它们也会引起不同的多普勒频移，因为角度1不等于角度2。所以<strong>频谱图上会出现两个突出的峰值，我们把它们算作两辆车</strong>。我们目前的系统针对<strong>双车道道路(每个方向一条车道)</strong>。我们在讨论部分讨论了多车道的情况。</p>
+<p>我们的系统还可以通过信号强度<strong>将汽车与路上的自行车、摩托车等其他小物体区分开来</strong>。我们观察到，汽车的信号反射比自行车和摩托车的信号反射强得多，因为汽车是由大块金属制成的，因此具有更强的射频反射。</p>
+<h2 id="7-EVALUATION"><a href="#7-EVALUATION" class="headerlink" title="7. EVALUATION"></a>7. EVALUATION</h2><p>在本节中，我们将在不同的室内和室外环境中进行实验，以评估LTE检测的性能。</p>
+<h3 id="7-1-Hardware-implementation"><a href="#7-1-Hardware-implementation" class="headerlink" title="7.1 Hardware implementation"></a>7.1 Hardware implementation</h3><p>我们在NI USRP B210 [29]上构建了一个原型接收机，它可以由5V  USB电源(如笔记本电脑)或便携式电源组供电。它适用于室内和室外实验。我们使用联想Thinkpad x1  carbon笔记本电脑(i7-8665U，1.9GHz，16GB RAM)进行信号处理。在软件部分，我们修改了srsLTE  <a href="一个开源的4G架构项目">32</a>中的代码来连续提取LTE CSI，并用MATLAB处理接收到的信号。</p>
+<h3 id="7-2-Evaluation-of-respiration-sensing"><a href="#7-2-Evaluation-of-respiration-sensing" class="headerlink" title="7.2 Evaluation of respiration sensing"></a>7.2 Evaluation of respiration sensing</h3><p>在本节中，我们将评估提议的基于LTE的普适呼吸检测系统的性能。</p>
+<h4 id="Experiment-setup"><a href="#Experiment-setup" class="headerlink" title="Experiment setup"></a>Experiment setup</h4><p>我们在两个典型的室内环境中部署了所提出的呼吸感测系统，一个是小型住宅，另一个是拥有超过50个房间的大型大学办公楼。我们将整个住宅分为两个区域:家庭生活区，包括客厅和三个卧室；家庭走廊区，包括走廊和浴室。我们在办公楼内选定的25个区域进行实验。我们将这25个区域分为三类:办公室1墙区域，在区域和室外之间有一面墙；办公室2墙区域，在区域和室外之间有两面墙；办公室3墙区域，在区域和室外之间至少有三面墙。在25个选定区域中，我们有12个单墙办公室区域、5个双墙办公室区域和8个三墙办公室区域。六名志愿者参与了实验，包括两名男性和四名女性。如图8  (c)和(d)所示，他们被要求在实验期间坐着，并按照我们的指示改变他们的方向。在半年时间里，我们总共获得了6000多条一分钟的人体呼吸记录。我们使用Hexoskin智能服装[16]来测量真实呼吸率。</p>
+<p><img src="http://picgo.southner.top/image-20220330182056036.png" alt="image-20220330182056036"></p>
+<h5 id="7-2-1-Coverage-of-LTE-based-respiration-sensing"><a href="#7-2-1-Coverage-of-LTE-based-respiration-sensing" class="headerlink" title="7.2.1 Coverage of LTE-based respiration sensing"></a>7.2.1 Coverage of LTE-based respiration sensing</h5><p>我们首先研究基于LTE的呼吸检测系统的覆盖范围。在这个实验中，我们在住宅内随机选择了家居生活区的40个位置和家居走廊区的20个位置。我们还从办公楼内的25个区域中各选择10个位置。我们在每个位置放置LTE终端，然后让志愿者坐在距离终端0.5米的地方。我们在每个位置重复实验10次，并计算平均呼吸率误差。如果平均呼吸率误差小于1bpm.，则认为一个位置是被覆盖的。</p>
+<p>我们将覆盖率计算为被覆盖位置的数量与位置总数的比率，并将结果绘制在图13的不同区域中。我们从图13中看到，不同类型区域的覆盖率始终在90%以上，总体覆盖率为95.4%。具体来说，我们观察到家庭生活区和办公室单墙区域的覆盖率为100%，包括<strong>卧室、客厅和与室外一墙之隔</strong>的办公区域。这些区域通常是现实生活中最需要呼吸率监测的地方。在家庭走廊区域和办公室走廊区域，由于墙壁造成的信号衰减，覆盖范围略低。对于那些位于建筑物深处的房间，即在该区域和室外之间有三面墙的房间，覆盖率为90%，这仍然是相当好的。相比之下，办公楼里的WiFi感应覆盖率仅为15%。</p>
+<p>我们进一步评估了提出的启发式坐标移动方案的有效性。在没有启发式坐标移动的情况下，检测率分别下降了12.5%、21%、14.2%、32.6%和54.2%。结果表明，提出的启发式坐标移动方案有助于提取目标活动引起的信号变化。</p>
+<p><img src="http://picgo.southner.top/image-20220330182355089.png" alt="image-20220330182355089"></p>
+<p>Figure 13 .不同类型地区的总检出率。使用启发式坐标移位(HCS)和不使用HCS的性能比较。</p>
+<p>Figure 14. 不同位置最大可探测接收器-目标距离的CDF图。“可检测”意味着平均呼吸率误差小于1  bpm。</p>
+<h5 id="7-2-2-Receiver-target-distance"><a href="#7-2-2-Receiver-target-distance" class="headerlink" title="7.2.2 Receiver-target distance"></a>7.2.2 Receiver-target distance</h5><p>对于LTE感测，transmitter远离target。我们现在评估 receiver和target之间的距离的影响。我们在第7.2.1节中选择的310个位置进行实验。我们将LTE终端放置在该位置，并让目标以0.5  m的步长远离LTE终端，以测量目标和LTE终端之间仍能实现小于1  rpm的呼吸率估计误差的最大距离。为了减少随机性，我们对每个配置重复实验10次，并计算平均误差。我们在图14中绘制了住宅和办公楼中测量的最大距离的CDF。我们看到，家庭和办公室的平均可探测距离分别为3.1米和3.3米。</p>
+<p>为了进一步证明基于LTE的呼吸率估计的精度与LTE终端和人体目标之间的距离之间的关系，我们在一个充满家具的大会议室中进行了一个实验，如图15  (a)所示，其中LTE终端靠近窗户放置，人体目标坐在椅子上自然呼吸。我们让目标改变位置，并以0.5米的步长改变与接收器的距离。我们使用激光测距仪[6]来测量目标胸部与LTE终端之间的距离。</p>
+<p><img src="http://picgo.southner.top/image-20220330183023751.png" alt="image-20220330183023751"></p>
+<p>图15:精确度与距离评估的实验设置。(a)标有家具、目标和接收者的会议室布局。(b)呼吸率估计的平均误差与到LTE终端的距离的关系。(c)离LTE终端不同距离的三个目标位置处的呼吸模式。</p>
+<p>图15  (b)描述了估计呼吸率的平均绝对误差。当目标远离LTE终端时，平均误差增加。这是因为来自目标胸部的反射信号沿着反射路径衰减，导致较低的SNR，从而导致较大的估计误差。然而，我们要指出的是，在6米的距离上，误差在0.93转/分时仍然相当小。为了进一步证明人类目标和LTE终端之间的距离的影响，我们还在图15  (c)中绘制了提取的呼吸模式。我们可以看到，距离越小，图案越清晰。一般来说，1  bpm的呼吸率估计误差被认为是现实生活应用中可接受的[46]。也就是说，LTE-Track的目标设备距离可以达到六米，这足以在使用智能手机或智能手表等配备LTE的设备的房间中监测人体呼吸。</p>
+<h5 id="7-2-3-Impact-of-blind-spot-and-target-orientation"><a href="#7-2-3-Impact-of-blind-spot-and-target-orientation" class="headerlink" title="7.2.3 Impact of blind spot and target orientation"></a>7.2.3 Impact of blind spot and target orientation</h5><p>我们针对<strong>盲点问题</strong>和<strong>方向问题</strong>评估了所提出的LTE感测系统的鲁棒性。我们将LTE终端放置在一个位置，然后从距离终端两米半径范围内的区域统一选择30个位置。我们让目标坐在30个位置，然后估计目标的呼吸频率。在每个位置，我们也让目标通过面对六个不同的方向来改变他/她的方向。对于每个位置和方向的组合，我们重复实验10次。在每个位置，我们检查是否可以获得误差小于1  bpm的可靠的呼吸率估计。我们在住宅的一个卧室和办公楼的两个房间，一个办公室一面墙的区域和一个办公室三面墙的区域进行实验。</p>
+<p>我们将检测率计算为我们可以获得可靠呼吸估计的组合(位置、方向)的数量与组合总数的比率。我们将结果绘制在图16中，从中我们可以看到，LTE-Track选择了四个基站，即2115  MHz、2127.5 MHz、1937.5 MHz和739 MHz，用于三个房间的呼吸速率估计。在图16  (a)中，我们绘制了目标面向LTE终端时的总检测率。从左到右，我们根据RSNR值以降序对基站进行排序。我们从多个基站收集信息以提高鲁棒性。我们可以看到，通过汇总来自四个基站的信息，LTE-Track能够分别覆盖我们在卧室、办公室1和办公室2中测试的100%、98%和95%的位置。注意，对于办公室1，由739  MHz基站覆盖的那些位置全部被其它三个基站覆盖，也就是说，739  MHz在办公室1中没有额外的贡献。因此，它不会绘制在堆积条形图上。如果我们仅使用在三个房间中具有最强RSNR的单个基站，该比率会降低到93%、90%和60%，从而导致明显更多的盲点。总之，通过利用多个基站的空间分集，LTE-Track成功地将三个房间的盲点数量分别减少了70%、80%和87.5%。</p>
+<p><img src="http://picgo.southner.top/image-20220330183425884.png" alt="image-20220330183425884"></p>
+<p>图16: (a)使用来自目标面向LTE终端的多个基站的信息在不同位置的合计检测率。(b)目标位置和方向不同的综合探测率。</p>
+<p>为了进一步研究目标方位的影响，我们在图16  (b)中绘制了每个位置六个不同方向的平均探测率。我们可以看到，LTE-Track能够分别覆盖卧室、办公室1和办公室2中95%、92%和83%的位置。请注意，对于被三堵墙与室外隔开的办公室2，每个基站的检测性能都会下降。即使对于具有最高RSNR的基站，检测率也只有大约40%。通过涉及多个基站，我们将检测率提高了100%以上。总之，方向确实会影响检测率，但LTETrack通过充分利用LTE频率和空间分集，仍然可以在不同方向上实现稳健的性能。</p>
+<h5 id="7-2-4-Effect-of-weather-and-times-of-day"><a href="#7-2-4-Effect-of-weather-and-times-of-day" class="headerlink" title="7.2.4 Effect of weather and times of day."></a>7.2.4 Effect of weather and times of day.</h5><p>我们观察到接收到的LTE信号受一天中的时间(即白天或晚上)和天气的影响。为了量化它们对呼吸率估计的影响，我们用一天中不同的时间和天气进行实验。在每个实验中，我们将LTE终端放置在相同的位置，并让目标<strong>面对LTE终端</strong>。我们估计目标坐在相对于LTE终端具有不同距离的10个预定位置的呼吸率。对于每个配置，我们重复实验10次。基于在10个位置的估计结果，我们计算仍能保持小于1  bpm的误差的<strong>最大目标-接收器距离</strong>。为了评估白天和晚上的效果，我们重复实验并记录一周的数据。为了评估不同天气条件的影响，我们收集了一个月的数据，其中有14个晴天，5个阴天，7个大风天和4个雨天。我们将结果绘制在图17中。从图17  (a)中我们可以看出，平均而言，夜间的最大目标接收器距离比白天短0.17米。一个可能的原因是LTE基站在夜间切换到省电模式[41]。较低的信号强度导致较低的SNR和较低的感测能力。另一方面，我们可以从图17  (b)中看到，天气对检测性能有显著影响。具体来说，雨天最大目标-接收机距离比晴天小一米左右。</p>
+<p><img src="http://picgo.southner.top/image-20220330184115645.png" alt="image-20220330184115645"></p>
+<p>图17:一天中的时间和天气对呼吸感知的影响。可检测意味着呼吸率估计误差小于1 bpm</p>
+<h3 id="7-3-Evaluation-of-car-speed-estimation-and-counting"><a href="#7-3-Evaluation-of-car-speed-estimation-and-counting" class="headerlink" title="7.3 Evaluation of car speed estimation and counting"></a>7.3 Evaluation of car speed estimation and counting</h3><p>在本节中，我们将评估基于LTE的车速估算和车辆计数系统的性能。</p>
+<h4 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h4><p>我们在五个不同的地点部署了我们的系统，包括我们大学的两个停车场和三条道路，如图18所示。两个实验场景如图19所示。在每个场景中，我们测量五辆不同汽车的速度，包括两辆轿车和三辆SUV。在停车场，我们将车速从每小时25英里提高到每小时50英里，步长为每小时5英里。由于速度限制，我们只将三条道路的速度从25英里/小时提高到35英里/小时。我们把每个实验重复十次。我们在实验过程中使用 cruise control巡航控制，并以速度作为ground truth。</p>
+<p><img src="http://picgo.southner.top/image-20220330211855995.png" alt="image-20220330211855995"></p>
+<p><img src="http://picgo.southner.top/image-20220330214511256.png" alt="image-20220330214511256"></p>
+<h5 id="7-3-1-Accuracy-of-speed-estimation"><a href="#7-3-1-Accuracy-of-speed-estimation" class="headerlink" title="7.3.1 Accuracy of speed estimation"></a>7.3.1 Accuracy of speed estimation</h5><p>图20（a）显示了车速估计的平均和90%绝对误差。我们观察到，从25英里/小时到35英里/小时，速度误差减小，而从35英里/小时增加到50英里/小时时，速度误差增加。我们认为，当我们第一次提高速度时，精度的提高是因为更大的多普勒频移可以更准确地测量。然而，当我们进一步提高速度时，1000  Hz的采样率成为了传感的瓶颈。我们计划在未来利用LTE OFDM符号（每个子帧14个OFDM符号）的更高频率采样率进行更高速度的监控。</p>
+<p><img src="http://picgo.southner.top/image-20220330212103696.png" alt="image-20220330212103696"></p>
+<p>图20：（a）平均速度估计误差与实际速度之比。（b） 不同地点的平均速度估计误差。点线表示激光雷达的精度要求。</p>
+<p>图20（b）显示了图18地图上标记的多个位置的平均速度误差。来自不同基站的相应信号强度如表1所示。我们选择信号强度最高的基站，即停车场1的2172MHz而其他位置为2115 MHz。我们观察到，与其他位置相比，停车场#2的速度估计误差较低。主要原因是停车场#2靠近基站（497米），因此信号强度高（-61  dBm）。另一方面，Street#1距离一个基站（182米）更近，但速度误差更大。我们认为这是因为附近的树林和建筑物存在干扰。其他位置的结果与接收到的信号强度及其到基站的距离一致。一般来说，较小的距离和较高的信号强度可以提高速度估计精度。所有位置的平均速度误差小于2  mph，满足商品车速度测量装置的精度要求[4]。</p>
+<h4 id="7-3-2-Accuracy-of-car-counting"><a href="#7-3-2-Accuracy-of-car-counting" class="headerlink" title="7.3.2 Accuracy of car counting"></a>7.3.2 Accuracy of car counting</h4><p>我们进行实验，统计在大学里两条双车道道路（每个方向一条线）上经过的汽车数量。具体来说，我们将LTE终端放在2号街的红绿灯附近，1号街的人行横道按钮附近。在每个地点，我们记录两个小时的信号轨迹，并使用摄像头收集过往车辆的ground truth。</p>
+<p>我们将检测率计算为检测到的车辆数量与车辆总数之比，并将结果绘制在图21（a）中。我们发现，在不同的位置和时间，检测率始终高于95%，这证明了LTE跟踪的鲁棒性。我们还在图21（b）和（c）中绘制了检测到的车辆数量随时间的变化，从图中我们可以看出，街道2比街道1更繁忙。从图21（b）中，我们可以看到12辆车在第一个红灯时段（红色背景色）经过LTE终端。在图21（c）中，当行人过街时（按下crossing button，黄色背景色），车流停止，我们在图中看到两个明显的中断。车流信息可以帮助交通系统调整交叉按钮的等待时间，以平衡车流和人流。</p>
+<p><img src="http://picgo.southner.top/image-20220330212851801.png" alt="image-20220330212851801"></p>
+<h2 id="8-RELATED-WORK"><a href="#8-RELATED-WORK" class="headerlink" title="8. RELATED WORK"></a>8. RELATED WORK</h2><h3 id="LTE-sensing"><a href="#LTE-sensing" class="headerlink" title="LTE sensing"></a>LTE sensing</h3><p>现有的基于LTE的被动传感工作主要集中在基于“指纹”的定位[26,27,51]，通过收集不同位置的CSI测量值，并建立数据库来实现室内和室外场景中的粗略定位。类似地，一些工作[5,30,31]从过往车辆收集反射的CSI，以建立用于车辆类型分类的指纹数据库。最近的一项工作[10]进一步利用LTE信号进行细粒度手势识别，前提是从基站到接收器之间存在一条强大的视线可见路径，而我们的工作则在干扰和噪声的非光视觉环境中实现细粒度感测。SpiderMon[22]是一个基于LTE的按键感应系统。虽然SpiderMon不适用于全向天线，但作者利用高增益（24  dBi）抛物面天线来实现按键感应。相比之下，我们使用全向天线实现了细粒度的感知。</p>
+<h3 id="Respiration-sensing"><a href="#Respiration-sensing" class="headerlink" title="Respiration sensing."></a>Respiration sensing.</h3><p>呼吸传感是无线传感和移动健康领域的一个热门领域。基于WiFi的呼吸感应已经吸引了大量的关注。Wi-Sleep[23]是基于WiFi的呼吸感应的先驱。为了提高呼吸感应性能，Niu等人[25]介绍了一种向原始信号中添加虚拟多路径的方法，以增强信号变化，从而提高感应性能。另一方面，菲涅耳区理论[36,50]被用来解释盲点和方向敏感问题背后的潜在机制。PhaseBeat[39]利用连接到同一WiFi  AP的两个天线的相位差来提取呼吸模式。FarSense[47]利用CSI比率，并进一步组合振幅和相位信息，以增加传感范围。人们还利用UWB[19,34]、FMCW[3]和LoRa[42,48]等多种技术进行呼吸感应。这些技术需要专用硬件，而这在大多数环境中是不可用的。此外，所有现有的无线传感系统都要求目标位于发射机附近，而在我们的系统中，目标可能距离LTE基站数百米甚至数千米。鉴于LTE基础设施的广泛部署，我们能够实现更普遍的覆盖。</p>
+<h3 id="Car-speed-estimation-and-counting"><a href="#Car-speed-estimation-and-counting" class="headerlink" title="Car speed estimation and counting."></a>Car speed estimation and counting.</h3><p>车辆计数和速度估计是交通监控的关键组成部分。研究人员提出低成本定制设备[1]来取代昂贵的商业设备。其关键思想是使用定制的RFID阅读器与汽车上的ETC（电子收费）RFID标签进行通信。现有设计[1]与我们提出的解决方案之间的关键区别在于，现有设计要求每辆车都配备一个RFID标签，以便被感知，而我们的解决方案不要求在车上安装任何专用硬件。此外，在[1]中提出的解决方案需要沿道路部署两个相隔已知距离的RFID读卡器，而我们的解决方案只需要一个LTE终端即可实现几乎瞬时的速度估计。</p>
+<h2 id="9-DISCUSSION"><a href="#9-DISCUSSION" class="headerlink" title="9. DISCUSSION"></a>9. DISCUSSION</h2><h3 id="Comparison-with-WiFi-based-“pervasive”-sensing"><a href="#Comparison-with-WiFi-based-“pervasive”-sensing" class="headerlink" title="Comparison with WiFi-based “pervasive” sensing"></a>Comparison with WiFi-based “pervasive” sensing</h3><p>很难对基于WiFi和基于LTE的传感解决方案进行绝对公平的比较，因为与WiFi  AP相比，LTE基站距离目标的距离往往要远几百倍。我们将所提出的系统与Farsene（最先进的远程WiFi呼吸感应系统）进行了比较[47]。在精度方面，结果表明，当发射器在另一个5米之外的房间，接收器在同一个房间1米时，FarSense的误差为34  bpm。我们的实验在接收器距离目标1米且基站距离至少400米时，误差为14  bpm。就感知覆盖而言，FarSense在直瞄情况下覆盖范围为8米，在非直瞄情况下覆盖范围为5米(据发射器距离)。在办公楼中，WiFi感应覆盖率约为15%。相比之下，LTE传感可以在同一办公楼内实现90%以上的覆盖率。</p>
+<h3 id="Multi-target-respiration-sensing"><a href="#Multi-target-respiration-sensing" class="headerlink" title="Multi-target respiration sensing"></a>Multi-target respiration sensing</h3><p>当存在多个目标时，反射信号在接收器处混合在一起，将它们分离以感知每个目标是一项挑战。在空间上分离信号需要LTE终端配备天线阵列，该天线阵列目前在大多数商品LTE设备上不可用。一种可能的解决方案是只放大指定区域内一个目标引起的信号变化，同时抑制其他目标引起的信号变化。然而，这种方法仍然要求目标位置稀疏。</p>
+<h3 id="Multi-lane-scenario-in-car-counting"><a href="#Multi-lane-scenario-in-car-counting" class="headerlink" title="Multi-lane scenario in car counting"></a>Multi-lane scenario in car counting</h3><p>对于一个方向上有多条车道的宽阔道路，多辆车可能会并排靠近LTE终端。在这种情况下，多辆车反射的信号可以在接收器处混合。我们需要先分离信号，然后才能获得每辆车的信息。我们相信，我们可以利用具有更多天线的LTE - Advanced设备，并采用mD-Track[44]中提出的多维信号分离方法，以实现同时多车跟踪。</p>
+<h3 id="LTE-picocells-for-indoor-environment"><a href="#LTE-picocells-for-indoor-environment" class="headerlink" title="LTE picocells for indoor environment"></a>LTE picocells for indoor environment</h3><p>近年来，越来越多的LTE picocells被用于增强室内LTE通信。由于具有更强的信号和更少的干扰，我们相信LTE微微蜂窝支持我们的设计，并且提议的系统将表现得更好。</p>
+<h3 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h3><p>虽然提出的系统在结构复杂的办公楼中实现了90%以上的覆盖率，但仍然存在盲点，例如被四五面墙堵塞的浴室。随着metrocells、picocells和femtocells的部署不断增加，我们相信盲点问题将得到进一步缓解。另一个限制是，虽然我们成功地证明了使用软件定义的无线电平台作为接收器进行LTE感知的可行性，但对于我们来说，从智能手机等商品设备检索LTE  CSI读数仍然具有挑战性。</p>
+<h2 id="10-CONCLUSION"><a href="#10-CONCLUSION" class="headerlink" title="10. CONCLUSION"></a>10. CONCLUSION</h2><p>在本文中，我们首次分析了LTE传感的独特特性和优势。我们通过室内呼吸感知和室外流量监测两个典型应用，展示了LTE感知在感知覆盖和鲁棒性方面的优越性能。我们相信LTE  Track朝着真正普及的感知迈出了一大步，并在LTE设备上提供了一种新的感知模式。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://southner.top">southner</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://southner.top/2022/06/17/%E3%80%8ALTE-based-Pervasive-Sensing-Across-Indoor-and-Outdoor%E3%80%8B%E9%98%85%E8%AF%BB/">http://southner.top/2022/06/17/《LTE-based-Pervasive-Sensing-Across-Indoor-and-Outdoor》阅读/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://southner.top" target="_blank">南风er的小窝</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LTE%E4%BC%A0%E6%84%9F/">LTE传感</a></div><div class="post_share"><div class="social-share" data-image="http://picgo.southner.top/cover5.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ELTE%E7%9A%84%E5%AE%A4%E5%86%85%E5%AE%A4%E5%A4%96%E6%99%AE%E9%80%82%E4%BC%A0%E6%84%9F"><span class="toc-text">基于LTE的室内室外普适传感</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ABSTRACT"><span class="toc-text">ABSTRACT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-INTRODUCTION"><span class="toc-text">1. INTRODUCTION</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-LTE-PRELIMINARY"><span class="toc-text">2. LTE PRELIMINARY</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-LTE-physical-layer-frame-structure"><span class="toc-text">2.1 LTE physical-layer frame structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Channel-measurement-in-cellular-network"><span class="toc-text">2.2 Channel measurement in cellular network</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-ADVANTAGES-OF-LTE-SENSING"><span class="toc-text">3. ADVANTAGES OF LTE SENSING</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-SIGNAL-PREPROCESSING"><span class="toc-text">4. SIGNAL PREPROCESSING</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Challenges"><span class="toc-text">4.1 Challenges</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Signal-processing-step-by-step"><span class="toc-text">4.2 Signal processing step by step</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E9%9A%8F%E6%9C%BA%E7%9B%B8%E4%BD%8D%E5%81%8F%E7%A7%BB%E6%B6%88%E9%99%A4%E3%80%82"><span class="toc-text">4.2.1 随机相位偏移消除。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E5%B9%B2%E6%89%B0%E7%BC%93%E8%A7%A3%E3%80%82"><span class="toc-text">4.2.2 干扰缓解。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%8F%91%E7%8E%B0"><span class="toc-text">关键发现</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%8F%91%E5%BC%8F%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E3%80%82"><span class="toc-text">启发式坐标转换。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-%E6%AE%8B%E4%BD%99%E5%99%AA%E5%A3%B0%E6%B6%88%E9%99%A4"><span class="toc-text">4.2.3 残余噪声消除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-RESPIRATION-SENSING"><span class="toc-text">5. RESPIRATION SENSING</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-Respiration-rate-estimation"><span class="toc-text">5.1 Respiration rate estimation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-Robustness-issues-%E9%B2%81%E6%A3%92%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">5.2 Robustness issues 鲁棒性问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B2%E7%82%B9%E9%97%AE%E9%A2%98"><span class="toc-text">盲点问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%90%91%E6%95%8F%E6%84%9F%E9%97%AE%E9%A2%98%E3%80%82"><span class="toc-text">方向敏感问题。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E5%9F%BA%E4%BA%8ELTE%E7%9A%84%E5%91%BC%E5%90%B8%E6%A3%80%E6%B5%8B%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">对基于LTE的呼吸检测的影响</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Takeaway"><span class="toc-text">Takeaway</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-LTE-based-respiration-sensing-using-measurements-from-multiple-base-stations-%E4%BD%BF%E7%94%A8%E6%9D%A5%E8%87%AA%E5%A4%9A%E4%B8%AA%E5%9F%BA%E7%AB%99%E7%9A%84%E6%B5%8B%E9%87%8F%E5%80%BC%E8%BF%9B%E8%A1%8C%E5%9F%BA%E4%BA%8ELTE%E7%9A%84%E5%91%BC%E5%90%B8%E6%84%9F%E6%B5%8B"><span class="toc-text">5.3 LTE-based respiration sensing using measurements from multiple base stations 使用来自多个基站的测量值进行基于LTE的呼吸感测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Combining-information-from-multiple-base-stations-%E7%BB%84%E5%90%88%E6%9D%A5%E8%87%AA%E5%A4%9A%E4%B8%AA%E5%9F%BA%E7%AB%99%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-text">Combining information from multiple base stations 组合来自多个基站的信息</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-SENSING-HIGH-SPEED-CAR-MOVEMENT"><span class="toc-text">6. SENSING HIGH SPEED CAR MOVEMENT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-Car-speed-estimation"><span class="toc-text">6.1 Car speed estimation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Car-detection"><span class="toc-text">Car detection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Speed-estimation"><span class="toc-text">Speed estimation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-Car-counting"><span class="toc-text">6.2  Car counting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-EVALUATION"><span class="toc-text">7. EVALUATION</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-Hardware-implementation"><span class="toc-text">7.1 Hardware implementation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-Evaluation-of-respiration-sensing"><span class="toc-text">7.2 Evaluation of respiration sensing</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Experiment-setup"><span class="toc-text">Experiment setup</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2-1-Coverage-of-LTE-based-respiration-sensing"><span class="toc-text">7.2.1 Coverage of LTE-based respiration sensing</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2-2-Receiver-target-distance"><span class="toc-text">7.2.2 Receiver-target distance</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2-3-Impact-of-blind-spot-and-target-orientation"><span class="toc-text">7.2.3 Impact of blind spot and target orientation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2-4-Effect-of-weather-and-times-of-day"><span class="toc-text">7.2.4 Effect of weather and times of day.</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-Evaluation-of-car-speed-estimation-and-counting"><span class="toc-text">7.3 Evaluation of car speed estimation and counting</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Methodology"><span class="toc-text">Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-1-Accuracy-of-speed-estimation"><span class="toc-text">7.3.1 Accuracy of speed estimation</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-2-Accuracy-of-car-counting"><span class="toc-text">7.3.2 Accuracy of car counting</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-RELATED-WORK"><span class="toc-text">8. RELATED WORK</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LTE-sensing"><span class="toc-text">LTE sensing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Respiration-sensing"><span class="toc-text">Respiration sensing.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Car-speed-estimation-and-counting"><span class="toc-text">Car speed estimation and counting.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-DISCUSSION"><span class="toc-text">9. DISCUSSION</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Comparison-with-WiFi-based-%E2%80%9Cpervasive%E2%80%9D-sensing"><span class="toc-text">Comparison with WiFi-based “pervasive” sensing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-target-respiration-sensing"><span class="toc-text">Multi-target respiration sensing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-lane-scenario-in-car-counting"><span class="toc-text">Multi-lane scenario in car counting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LTE-picocells-for-indoor-environment"><span class="toc-text">LTE picocells for indoor environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Limitations"><span class="toc-text">Limitations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-CONCLUSION"><span class="toc-text">10. CONCLUSION</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By southner</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="http://www.beian.miit.gov.cn/"><img class="icp-icon" src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png"><span>陕ICP备20012321号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
